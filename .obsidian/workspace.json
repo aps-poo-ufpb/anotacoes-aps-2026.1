@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "a6c9f186bf08191e",
+        "id": "91dd12da3d1c84fb",
         "type": "tabs",
         "children": [
           {
-            "id": "1407b72566c0f495",
+            "id": "395a813f79db4440",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -20,21 +20,8 @@
               "icon": "lucide-file",
               "title": "2026-04-27 1a aula"
             }
-          },
-          {
-            "id": "4c1db70f8165cf96",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "2026-04-27 1a aula/attachments/2026-04-27 1a aula 2026-04-27 08.30.08.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "2026-04-27 1a aula 2026-04-27 08.30.08.excalidraw"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -91,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "98ffb5414c9c8807",
@@ -182,11 +168,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4c1db70f8165cf96",
+  "active": "5a193448f5088279",
   "lastOpenFiles": [
     "2026-04-27 1a aula/2026-04-27 1a aula.md",
-    "2026-04-27 1a aula/attachments/2026-04-27 1a aula 2026-04-27 08.30.08.excalidraw.svg",
     "2026-04-27 1a aula/attachments/2026-04-27 1a aula 2026-04-27 08.30.08.excalidraw.md",
+    "2026-04-27 1a aula/attachments/2026-04-27 1a aula 2026-04-27 08.30.08.excalidraw.svg",
     "2026-04-27 1a aula/attachments",
     "2026-04-27 1a aula/Untitled.md",
     "2026-04-27 1a aula",
