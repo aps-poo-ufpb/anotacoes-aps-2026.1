@@ -74,8 +74,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
@@ -169,10 +168,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "fc8f8eef97be036e",
+  "active": "395a813f79db4440",
   "lastOpenFiles": [
-    "2026-04-27 1a aula/2026-04-27 1a aula.md",
+    "2026-05-04 Revisão classes/Untitled.md",
     "2026-05-04 Revisão classes/2026-05-04 Revisão classes.md",
+    "2026-04-27 1a aula/2026-04-27 1a aula.md",
     "2026-05-04 Revisão classes",
     "2026-04-27 1a aula/fichamento_27_04_2026.md",
     "2026-04-27 1a aula/attachments/2026-04-27 1a aula 2026-04-27 08.30.08.excalidraw.md",
@@ -215,7 +215,6 @@
     "u1251124-arquitetura estados/u1251124-arquitetura estados.md",
     "u1251117-arquitetura mvc/u1251117-arquitetura mvc.md",
     "u1251117-arquitetura mvc/attachments/u1251117-arquitetura mvc 2025-11-17 08.21.57.excalidraw.md",
-    "u1251124-arquitetura estados/attachments/u1251124-arquitetura estados 2025-11-24 08.30.10.excalidraw.md",
-    "u1251110-intro dev web/u1251110-intro dev web.md"
+    "u1251124-arquitetura estados/attachments/u1251124-arquitetura estados 2025-11-24 08.30.10.excalidraw.md"
   ]
 }
