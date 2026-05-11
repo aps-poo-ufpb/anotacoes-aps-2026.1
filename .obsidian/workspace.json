@@ -74,7 +74,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -168,7 +169,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "395a813f79db4440",
+  "active": "fc8f8eef97be036e",
   "lastOpenFiles": [
     "2026-04-27 1a aula/2026-04-27 1a aula.md",
     "2026-05-04 Revisão classes/2026-05-04 Revisão classes.md",
