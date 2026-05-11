@@ -147,13 +147,23 @@
               "icon": "lucide-list",
               "title": "Outline"
             }
+          },
+          {
+            "id": "c167f79511d1b168",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -168,7 +178,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5a193448f5088279",
+  "active": "d4460488da8e8129",
   "lastOpenFiles": [
     "2026-05-11 web basico/2026-05-11 web basico.md",
     "2026-05-11 web basico/attachments/2026-05-11 web basico 2026-05-11 08.40.53.excalidraw.md",

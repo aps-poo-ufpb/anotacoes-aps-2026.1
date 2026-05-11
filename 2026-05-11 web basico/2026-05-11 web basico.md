@@ -100,6 +100,12 @@ O professor destacou que muitas pessoas tratam MVP como se fosse protótipo, mas
 
 Ele resolve uma dor pequena, mas real, do cliente.
 
+Em resumo:
+
+- **POC** verifica se uma ideia ou solução técnica é possível.
+- **Protótipo** ajuda a validar aparência, fluxo ou entendimento com o cliente, podendo ser descartável.
+- **MVP** já é um produto utilizável, ainda que pequeno, que resolve uma dor real.
+
 ---
 
 ## 4. Exemplo de desenvolvimento rápido com IA
@@ -158,8 +164,7 @@ O professor explicou que sistemas em produção devem ter mecanismos de monitora
 
 Um exemplo citado foi o uso de um endpoint chamado:
 
-```
-/health
+```/health
 ```
 
 A palavra **health** significa “saúde”.
@@ -191,6 +196,8 @@ Por exemplo, um sistema só deve ser considerado saudável se:
 - Os serviços essenciais estiverem respondendo corretamente.
 
 Uma prática citada foi fazer uma consulta simples ao banco de dados dentro do endpoint de saúde.
+
+Um endpoint `/health` não deve apenas responder “estou no ar”. Ele precisa verificar se os componentes essenciais do sistema estão funcionando. Caso contrário, o monitoramento pode indicar que o sistema está saudável mesmo quando uma parte importante, como o banco de dados, está indisponível.
 
 ---
 
@@ -469,6 +476,13 @@ A URL foi explicada em partes:
 - `8000` — porta;
 - `/` — recurso ou endpoint solicitado.
 
+Uma requisição web envolve vários elementos combinados:
+
+- O **protocolo** define as regras de comunicação, como HTTP ou HTTPS.
+- O **servidor** indica qual máquina será acessada.
+- A **porta** indica qual processo dentro da máquina receberá a requisição.
+- O **endpoint** indica qual recurso ou funcionalidade está sendo solicitada.
+
 ---
 
 ## 19. Protocolo HTTP
@@ -512,6 +526,11 @@ GET /index.html
 POST foi explicado como o verbo usado para enviar informações para o servidor.
 
 No exemplo do login, ao enviar e-mail e senha, o navegador fazia uma requisição POST.
+
+Na prática:
+
+- Usa-se **GET** quando o cliente quer buscar ou visualizar uma informação.
+- Usa-se **POST** quando o cliente quer enviar dados para o servidor, como em formulários de login, cadastro ou criação de registros.
 
 ---
 
@@ -824,6 +843,8 @@ Isso evita problemas do tipo:
 
 > “Na minha máquina funciona, na sua não.”
 
+O Maven também padroniza o ciclo de construção do projeto, permitindo executar tarefas como compilar, testar, empacotar e rodar o projeto de forma previsível.
+
 ---
 
 ## 33. Docker
@@ -845,6 +866,8 @@ Segundo ele:
 
 - Virtualização inicia um sistema operacional inteiro usando parte dos recursos do computador;
 - Docker cria uma camada isolada, compartilhando o sistema operacional.
+
+Quando se roda um programa com Docker, o programa executa dentro de um ambiente isolado, com dependências controladas, como versão do Java, banco de dados e bibliotecas necessárias.
 
 O professor afirmou que, se uma imagem Docker roda no computador do desenvolvedor, a mesma imagem pode ir para produção.
 
@@ -961,6 +984,8 @@ O professor diferenciou esse modelo de uma arquitetura em que o cliente baixa um
 
 O professor afirmou que server-side rendering foi escolhido porque é mais simples para os alunos e resolve muitos problemas básicos de internet.
 
+No server-side rendering, o HTML é montado no servidor e enviado pronto para o navegador. Isso simplifica o desenvolvimento inicial, pois a lógica de geração das páginas fica concentrada no backend. Diferente disso, em aplicações com frontend separado, o navegador recebe uma aplicação JavaScript que passa a buscar dados do servidor por meio de requisições.
+
 ---
 
 ## 40. Thymeleaf
@@ -990,6 +1015,8 @@ O professor explicou que o projeto usa Bootstrap.
 Bootstrap foi apresentado como uma biblioteca de componentes HTML.
 
 Ela permite deixar páginas mais bonitas e organizadas usando classes prontas.
+
+O Bootstrap facilita a criação de interfaces padronizadas, mas não substitui a necessidade de entender HTML e CSS. O aluno precisa saber o significado das estruturas para conseguir orientar a IA e ajustar a interface corretamente.
 
 Exemplos citados de classes Bootstrap:
 
@@ -1043,6 +1070,8 @@ O professor explicou que a IA sabe implementar padrões de projeto, mas precisa 
 
 Se o desenvolvedor não pedir, a IA pode não aplicar o padrão.
 
+Padrões de projeto não devem ser usados apenas para deixar o código mais sofisticado. Eles servem para resolver problemas recorrentes de organização, acoplamento, reutilização e manutenção.
+
 ---
 
 ## 43. Modularidade, contexto e redução de tokens
@@ -1060,6 +1089,8 @@ Quando o sistema é modular:
 - Há menos consumo de tokens;
 - A chance de erro diminui;
 - A manutenção fica melhor.
+
+A modularidade ajuda tanto humanos quanto IAs. Para humanos, facilita entender, testar e alterar partes do sistema. Para IAs, reduz o contexto necessário para realizar uma tarefa, pois a alteração fica concentrada em componentes menores e mais bem definidos.
 
 ### 43.1 Catálogo de reutilização
 
