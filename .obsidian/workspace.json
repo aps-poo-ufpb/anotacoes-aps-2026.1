@@ -11,10 +11,14 @@
             "id": "d4460488da8e8129",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "2026-05-11 web basico/2026-05-11 web basico.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "2026-05-11 web basico"
             }
           }
         ]
@@ -164,7 +168,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d4460488da8e8129",
+  "active": "5a193448f5088279",
   "lastOpenFiles": [
     "2026-05-11 web basico/2026-05-11 web basico.md",
     "2026-05-11 web basico/attachments/2026-05-11 web basico 2026-05-11 08.40.53.excalidraw.md",
