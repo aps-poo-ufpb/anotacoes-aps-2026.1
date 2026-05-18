@@ -5,6 +5,7 @@ feature: projetos/UFPB.2026.1/APS2026.1/anotacoes-aps-2026.1/2026-05-11 web basi
 %%[🖋 Edit in Excalidraw](attachments/2026-05-11%20web%20basico%202026-05-11%2008.40.53.excalidraw.md)%%
 
 
+
 # Fichamento da Aula — APS 2026.1
 
 **Data:** 11 de maio de 2026  
@@ -34,9 +35,11 @@ Entre essas preocupações, foram citadas:
 - Implantação;
 - Processos de suporte e operação.
 
-O professor explicou que a inteligência artificial já consegue gerar código com qualidade acima da média do programador comum, mas isso não elimina a necessidade de formação técnica sólida.
+O professor explicou que a inteligência artificial já consegue gerar rapidamente grande parte do código estrutural e repetitivo de um sistema, muitas vezes com qualidade acima da média do programador comum.
 
-A IA pode implementar código, mas, se o desenvolvedor não souber orientar corretamente, o sistema pode ficar ruim, frágil ou difícil de manter.
+Isso não significa que implementação deixou de ser importante. A IA ainda depende fortemente da orientação humana para decisões de arquitetura, modelagem, segurança, integração, escalabilidade, qualidade e manutenção.
+
+A IA pode produzir soluções aparentemente funcionais, mas frágeis. Se o desenvolvedor não souber orientar corretamente, o sistema pode ficar ruim, inseguro ou difícil de manter.
 
 ---
 
@@ -96,15 +99,15 @@ O protótipo pode ser descartável.
 
 MVP significa **Minimum Viable Product**, ou **Produto Mínimo Viável**.
 
-O professor destacou que muitas pessoas tratam MVP como se fosse protótipo, mas, na visão apresentada na aula, o MVP já deve ser um produto real no mercado.
+O professor destacou que muitas pessoas tratam MVP como se fosse protótipo, mas, na visão apresentada na aula, o MVP não deve ser confundido com um simples rascunho descartável.
 
-Ele resolve uma dor pequena, mas real, do cliente.
+MVP é uma versão mínima do produto capaz de validar valor real com usuários reais. Ele pode estar em produção, ser usado por poucos usuários ou ser validado em um ambiente controlado, desde que resolva uma dor real.
 
 Em resumo:
 
 - **POC** verifica se uma ideia ou solução técnica é possível.
 - **Protótipo** ajuda a validar aparência, fluxo ou entendimento com o cliente, podendo ser descartável.
-- **MVP** já é um produto utilizável, ainda que pequeno, que resolve uma dor real.
+- **MVP** é uma versão mínima utilizável, ainda que pequena, capaz de validar valor real com usuários reais.
 
 ---
 
@@ -164,7 +167,8 @@ O professor explicou que sistemas em produção devem ter mecanismos de monitora
 
 Um exemplo citado foi o uso de um endpoint chamado:
 
-```/health
+```
+/health
 ```
 
 A palavra **health** significa “saúde”.
@@ -199,6 +203,11 @@ Uma prática citada foi fazer uma consulta simples ao banco de dados dentro do e
 
 Um endpoint `/health` não deve apenas responder “estou no ar”. Ele precisa verificar se os componentes essenciais do sistema estão funcionando. Caso contrário, o monitoramento pode indicar que o sistema está saudável mesmo quando uma parte importante, como o banco de dados, está indisponível.
 
+Essa discussão se aproxima de duas ideias importantes em monitoramento:
+
+- **Liveness check:** verifica se o processo está vivo.
+- **Readiness check:** verifica se o sistema está pronto para atender requisições de forma adequada.
+
 ---
 
 ## 7. Backup e plano de recuperação
@@ -212,6 +221,8 @@ O professor reforçou que não basta fazer backup.
 - Plano de recuperação de incidentes.
 
 O backup deve fazer parte de uma estratégia maior de continuidade do serviço.
+
+Além disso, backup sem teste de restauração é insuficiente. A equipe precisa saber se consegue recuperar os dados quando realmente precisar.
 
 ---
 
@@ -270,7 +281,12 @@ O professor reforçou que não basta fazer backup.
 
 ## 11. Auditoria
 
-Auditoria foi apresentada como a existência de logs que permitem identificar ações realizadas no sistema.
+Auditoria foi apresentada como a existência de registros que permitem identificar ações realizadas no sistema.
+
+É importante diferenciar logs técnicos de logs de auditoria:
+
+- **Log técnico:** registra eventos técnicos, como erro no banco, falha de conexão ou exceção na aplicação.
+- **Log de auditoria:** registra ações relevantes de usuários e do negócio, como alteração de venda, mudança de estado ou confirmação de pagamento.
 
 Exemplos de perguntas que logs de auditoria devem responder:
 
@@ -280,7 +296,7 @@ Exemplos de perguntas que logs de auditoria devem responder:
 - Quem marcou que recebeu o dinheiro?
 - Em que momento a ação aconteceu?
 
-A auditoria foi relacionada também à segurança.
+A auditoria foi relacionada também à segurança, porque permite rastrear ações importantes e investigar comportamentos ou alterações no sistema.
 
 ---
 
@@ -403,10 +419,14 @@ A porta é o número que permite ao sistema operacional saber para qual processo
 
 Um computador pode ter vários processos, mas cada processo que recebe mensagens de rede precisa estar associado a uma porta.
 
-O professor afirmou:
+O professor explicou a ideia geral de que a porta identifica qual serviço ou processo receberá determinada comunicação.
 
-- Uma porta pode estar ligada a apenas um processo;
-- Não é possível ter SSH e SFTP usando a mesma porta ao mesmo tempo.
+Para alunos iniciantes, a regra prática é: em geral, um mesmo IP e porta não podem ser utilizados simultaneamente por múltiplos processos escutando da mesma forma.
+
+Também é importante diferenciar os protocolos:
+
+- FTP e SSH normalmente utilizam portas diferentes e protocolos diferentes.
+- SFTP funciona sobre SSH e normalmente utiliza a mesma porta do SSH.
 
 ### 15.4 Exemplo com Javalin
 
@@ -458,6 +478,8 @@ Foram citados exemplos de servidores web:
 - Node.js.
 
 Tomcat e Jetty foram mencionados como servidores web relacionados a aplicações Java.
+
+Node.js, de forma mais precisa, é um ambiente de execução JavaScript frequentemente utilizado para construir servidores web.
 
 ---
 
@@ -587,7 +609,9 @@ HTTPS foi explicado como uma conexão segura e criptografada.
 
 O professor destacou que o cadeado no navegador indica que a comunicação entre o computador do usuário e o servidor está criptografada.
 
-Mas o cadeado não garante que o servidor em si seja confiável.
+HTTPS protege a comunicação contra interceptação e alteração durante o tráfego, mas não garante que o sistema esteja livre de vulnerabilidades ou seja confiável.
+
+O cadeado não garante que o servidor em si seja confiável.
 
 Ele explicou que um atacante poderia ter um servidor malicioso com conexão criptografada.
 
@@ -703,6 +727,8 @@ A resposta pode conter diferentes tipos de conteúdo:
 HTML foi apresentado como uma linguagem de marcação.
 
 O professor enfatizou que HTML não é linguagem de programação.
+
+HTML descreve estrutura e conteúdo, mas não possui mecanismos de lógica computacional típicos de linguagens de programação, como variáveis, loops e funções.
 
 HTML serve para descrever elementos de uma página, como:
 
@@ -865,7 +891,7 @@ O professor diferenciou Docker de virtualização tradicional.
 Segundo ele:
 
 - Virtualização inicia um sistema operacional inteiro usando parte dos recursos do computador;
-- Docker cria uma camada isolada, compartilhando o sistema operacional.
+- Containers compartilham o kernel do sistema operacional hospedeiro, mas executam aplicações em ambientes isolados.
 
 Quando se roda um programa com Docker, o programa executa dentro de um ambiente isolado, com dependências controladas, como versão do Java, banco de dados e bibliotecas necessárias.
 
@@ -984,7 +1010,11 @@ O professor diferenciou esse modelo de uma arquitetura em que o cliente baixa um
 
 O professor afirmou que server-side rendering foi escolhido porque é mais simples para os alunos e resolve muitos problemas básicos de internet.
 
-No server-side rendering, o HTML é montado no servidor e enviado pronto para o navegador. Isso simplifica o desenvolvimento inicial, pois a lógica de geração das páginas fica concentrada no backend. Diferente disso, em aplicações com frontend separado, o navegador recebe uma aplicação JavaScript que passa a buscar dados do servidor por meio de requisições.
+No server-side rendering, o HTML é montado no servidor e enviado pronto para o navegador. Isso simplifica o desenvolvimento inicial, pois a lógica de geração das páginas fica concentrada no backend.
+
+Isso não significa que server-side rendering não possa usar JavaScript. Significa apenas que a página principal é construída no servidor.
+
+Em arquiteturas frontend/backend separados, o navegador normalmente executa uma aplicação JavaScript que consome APIs HTTP expostas pelo backend.
 
 ---
 
@@ -1012,9 +1042,11 @@ Exemplo de template citado:
 
 O professor explicou que o projeto usa Bootstrap.
 
-Bootstrap foi apresentado como uma biblioteca de componentes HTML.
+Bootstrap foi apresentado como uma ferramenta para facilitar a construção de interfaces web.
 
-Ela permite deixar páginas mais bonitas e organizadas usando classes prontas.
+De forma mais precisa, Bootstrap é um framework frontend com estilos CSS, componentes visuais, componentes JavaScript, sistema de grid e utilitários prontos para construção de interfaces web responsivas.
+
+Ele permite deixar páginas mais bonitas e organizadas usando classes prontas.
 
 O Bootstrap facilita a criação de interfaces padronizadas, mas não substitui a necessidade de entender HTML e CSS. O aluno precisa saber o significado das estruturas para conseguir orientar a IA e ajustar a interface corretamente.
 
@@ -1091,6 +1123,8 @@ Quando o sistema é modular:
 - A manutenção fica melhor.
 
 A modularidade ajuda tanto humanos quanto IAs. Para humanos, facilita entender, testar e alterar partes do sistema. Para IAs, reduz o contexto necessário para realizar uma tarefa, pois a alteração fica concentrada em componentes menores e mais bem definidos.
+
+Além disso, modularidade reduz acoplamento, melhora testes, favorece reuso e facilita a evolução independente de partes do sistema.
 
 ### 43.1 Catálogo de reutilização
 
@@ -1250,45 +1284,48 @@ Segundo ele, isso pode gerar casos de invasões, quedas de sistemas e problemas 
 11. Por que o professor afirma que o processo, e não uma pessoa específica, precisava ser melhorado no incidente?
 12. O que significa estar on-call?
 13. Por que não basta apenas fazer backup?
-14. O que é um plano de recuperação de backup?
-15. O que são logs de auditoria?
-16. Por que uma parte administrativa é importante em sistemas reais?
-17. O que é tolerância a falhas?
-18. Por que uma empresa pode precisar de duas conexões de internet?
-19. O que é SSH?
-20. Qual é a diferença entre SSH e FTP?
-21. O que é uma porta em redes de computadores?
-22. Por que uma porta não pode estar ligada a dois serviços diferentes ao mesmo tempo?
-23. O que é um IP?
-24. O que é uma LAN?
-25. O que é uma URL e quais partes foram explicadas na aula?
-26. O que é um protocolo?
-27. Quais verbos HTTP foram citados?
-28. Qual é a diferença entre GET e POST?
-29. O que é DNS?
-30. Para que serve o `localhost`?
-31. O que representa o IP `127.0.0.1`?
-32. Quais são as portas padrão de HTTP e HTTPS?
-33. O que o cadeado do navegador realmente indica?
-34. O que é um sniffer?
-35. Por que redes públicas podem representar risco de segurança?
-36. O que é um servidor?
-37. Por que IPs como `10.x.x.x` e `192.168.x.x` não são acessíveis diretamente pela internet?
-38. Para que serve o Ngrok?
-39. O que é um gateway?
-40. Como o Javalin mapeia uma rota para um método Java?
-41. O que é o objeto `Context` no Javalin?
-42. O que é HTML?
-43. O que é CSS?
-44. O que é Maven e qual problema ele ajuda a resolver?
-45. Para que serve o arquivo `pom.xml`?
-46. O que é Docker?
-47. Qual é a diferença apresentada entre Docker e virtualização?
-48. O que é server-side rendering?
-49. Para que serve o Thymeleaf no projeto?
-50. Para que serve o Bootstrap?
-51. O que é um modal?
-52. Por que padrões de projeto continuam importantes usando IA?
-53. Como a modularidade ajuda no uso de IA para programação?
-54. O que é um catálogo de componentes reutilizáveis?
-55. Por que codificar, por si só, tende a ter menos valor no mercado segundo o professor?
+14. Por que backup sem teste de restauração é insuficiente?
+15. O que é um plano de recuperação de backup?
+16. Qual é a diferença entre logs técnicos e logs de auditoria?
+17. O que são logs de auditoria?
+18. Por que uma parte administrativa é importante em sistemas reais?
+19. O que é tolerância a falhas?
+20. Por que uma empresa pode precisar de duas conexões de internet?
+21. O que é SSH?
+22. Qual é a diferença entre SSH, FTP e SFTP?
+23. O que é uma porta em redes de computadores?
+24. Por que, em geral, o mesmo IP e porta não podem ser usados por múltiplos processos escutando da mesma forma?
+25. O que é um IP?
+26. O que é uma LAN?
+27. O que é uma URL e quais partes foram explicadas na aula?
+28. O que é um protocolo?
+29. Quais verbos HTTP foram citados?
+30. Qual é a diferença entre GET e POST?
+31. O que é DNS?
+32. Para que serve o `localhost`?
+33. O que representa o IP `127.0.0.1`?
+34. Quais são as portas padrão de HTTP e HTTPS?
+35. O que o cadeado do navegador realmente indica?
+36. O que é um sniffer?
+37. Por que redes públicas podem representar risco de segurança?
+38. O que é um servidor?
+39. Por que IPs como `10.x.x.x` e `192.168.x.x` não são acessíveis diretamente pela internet?
+40. Para que serve o Ngrok?
+41. O que é um gateway?
+42. Como o Javalin mapeia uma rota para um método Java?
+43. O que é o objeto `Context` no Javalin?
+44. O que é HTML?
+45. O que é CSS?
+46. O que é Maven e qual problema ele ajuda a resolver?
+47. Para que serve o arquivo `pom.xml`?
+48. O que é Docker?
+49. Qual é a diferença apresentada entre Docker e virtualização?
+50. O que é server-side rendering?
+51. Para que serve o Thymeleaf no projeto?
+52. Para que serve o Bootstrap?
+53. O que é um modal?
+54. Por que padrões de projeto continuam importantes usando IA?
+55. Como a modularidade ajuda no uso de IA para programação?
+56. Por que modularidade tende a reduzir erros tanto para humanos quanto para IA?
+57. O que é um catálogo de componentes reutilizáveis?
+58. Por que codificar, por si só, tende a ter menos valor no mercado segundo o professor?
