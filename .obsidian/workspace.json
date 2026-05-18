@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2026-05-18 arquitetura web/2026-05-18 arquitetura web.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-05-18 arquitetura web"
+              "title": "README"
             }
           },
           {
@@ -47,8 +47,7 @@
               "title": "2026-05-11 web basico 2026-05-11 08.40.53.excalidraw"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -105,8 +104,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "98ffb5414c9c8807",
@@ -207,15 +205,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "fc1624e22ada3f42",
+  "active": "d4460488da8e8129",
   "lastOpenFiles": [
+    "2026-05-18 arquitetura web/2026-05-18 arquitetura web.md",
+    "2026-05-18 arquitetura web/attachments/2026-05-18 arquitetura web 2026-05-18 08.33.38.excalidraw.md",
     "2026-05-18 arquitetura web/attachments/attachments/CleanShot 2026-05-18 at 09.44.49@2x.png",
     "2026-05-18 arquitetura web/attachments/attachments/CleanShot 2026-05-18 at 09.36.29@2x.png",
     "2026-05-18 arquitetura web/attachments/attachments",
     "2026-05-11 web basico/attachments/2026-05-11 web basico 2026-05-11 08.40.53.excalidraw.md",
     "2026-05-11 web basico/2026-05-11 web basico.md",
-    "2026-05-18 arquitetura web/attachments/2026-05-18 arquitetura web 2026-05-18 08.33.38.excalidraw.md",
-    "2026-05-18 arquitetura web/2026-05-18 arquitetura web.md",
     "2026-05-18 arquitetura web/attachments/2026-05-18 arquitetura web 2026-05-18 08.33.38.excalidraw.svg",
     "2026-05-18 arquitetura web/attachments",
     "2026-05-18 arquitetura web",
@@ -248,7 +246,6 @@
     "u2260302-Strategy-Observer/attachments/u2260302-Strategy-Observer 2026-03-02 08.20.08.excalidraw.md",
     "u2260316-Decorator e Template Method/attachments/u2260316-Decorator 2026-03-16 08.43.00.excalidraw.svg",
     "u2260302-Strategy-Observer/u2260302-Strategy-Observer.md",
-    "u2260309-Composite/attachments/u2260309-Composite 2026-03-09 09.19.50.excalidraw.svg",
     "u2260209-Sobre o projeto/attachments/u2260209-Observer 2026-02-09 08.29.09.excalidraw.md",
     "u2260209-Sobre o projeto/u2260209-Sobre o projeto.md",
     "u2260202-notificação_eventos/u2260202-notificação_eventos.md",
