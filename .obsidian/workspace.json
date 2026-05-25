@@ -55,12 +55,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2026-05-18 arquitetura web/2026-05-18 arquitetura web.md",
-                "mode": "source",
+                "file": "2026-05-26 autenticacao web/2026-05-26 autenticacao web.md",
+                "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "2026-05-18 arquitetura web"
+              "title": "2026-05-26 autenticacao web"
+            }
+          },
+          {
+            "id": "8d486d3f884c39e7",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "2026-05-26 autenticacao web/attachments/2026-05-26 autenticacao web 2026-05-25 08.28.13.excalidraw.md"
+              },
+              "pinned": true,
+              "icon": "excalidraw-icon",
+              "title": "2026-05-26 autenticacao web 2026-05-25 08.28.13.excalidraw"
             }
           },
           {
@@ -90,7 +104,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -147,7 +161,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "98ffb5414c9c8807",
@@ -248,16 +263,21 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e7971fc56a10d042",
+  "active": "8d486d3f884c39e7",
   "lastOpenFiles": [
-    "2026-05-11 web basico/2026-05-11 web basico.md",
-    "2026-05-18 arquitetura web/2026-05-18 arquitetura web.md",
-    "README.md",
     "2026-05-18 arquitetura web/attachments/2026-05-18 arquitetura web 2026-05-18 08.33.38.excalidraw.md",
+    "2026-05-11 web basico/attachments/2026-05-11 web basico 2026-05-11 08.40.53.excalidraw.md",
+    "2026-05-26 autenticacao web/attachments/2026-05-26 autenticacao web 2026-05-25 08.28.13.excalidraw.md",
+    "2026-05-26 autenticacao web/2026-05-26 autenticacao web.md",
+    "2026-05-26 autenticacao web/attachments/2026-05-26 autenticacao web 2026-05-25 08.28.13.excalidraw.svg",
+    "2026-05-26 autenticacao web/attachments",
+    "2026-05-18 arquitetura web/2026-05-18 arquitetura web.md",
+    "2026-05-26 autenticacao web",
+    "2026-05-11 web basico/2026-05-11 web basico.md",
+    "README.md",
     "2026-05-18 arquitetura web/attachments/attachments/CleanShot 2026-05-18 at 09.44.49@2x.png",
     "2026-05-18 arquitetura web/attachments/attachments/CleanShot 2026-05-18 at 09.36.29@2x.png",
     "2026-05-18 arquitetura web/attachments/attachments",
-    "2026-05-11 web basico/attachments/2026-05-11 web basico 2026-05-11 08.40.53.excalidraw.md",
     "2026-05-18 arquitetura web/attachments/2026-05-18 arquitetura web 2026-05-18 08.33.38.excalidraw.svg",
     "2026-05-18 arquitetura web/attachments",
     "2026-05-18 arquitetura web",
@@ -280,21 +300,15 @@
     "u2260323- Factory/attachments/u2260323- Factory 2026-03-23 08.33.18.excalidraw.md",
     "u2260323- Factory/attachments/attachments/Pasted Image 20260323083332_417.png",
     "u2260323- Factory/attachments/attachments/Pasted Image 20260323083321_575.png",
-    "u2260323- Factory/attachments/attachments",
     "u2260323- Factory/attachments/u2260323- Factory 2026-03-23 08.33.18.excalidraw.svg",
-    "u2260323- Factory/attachments",
     "u2260309-Composite/attachments/u2260309-Composite 2026-03-09 09.19.50.excalidraw.md",
     "u2260316-Decorator e Template Method/attachments/u2260316-Decorator e Template Method 2026-03-16 09.56.45.excalidraw.svg",
     "u2260316-Decorator e Template Method/attachments/u2260316-Decorator 2026-03-16 08.43.00.excalidraw.md",
     "u2260309-Composite/u2260309-Composite.md",
     "u2260302-Strategy-Observer/attachments/u2260302-Strategy-Observer 2026-03-02 08.20.08.excalidraw.md",
-    "u2260316-Decorator e Template Method/attachments/u2260316-Decorator 2026-03-16 08.43.00.excalidraw.svg",
     "u2260302-Strategy-Observer/u2260302-Strategy-Observer.md",
     "u2260209-Sobre o projeto/attachments/u2260209-Observer 2026-02-09 08.29.09.excalidraw.md",
     "u2260209-Sobre o projeto/u2260209-Sobre o projeto.md",
-    "u2260202-notificação_eventos/u2260202-notificação_eventos.md",
-    "u2260202-notificação_eventos/attachments/u2260202-notificação_eventos 2026-02-02 08.32.31.excalidraw.md",
-    "u2260209-Observer/Untitled.md",
-    "u1251208-acoplamento_vs_coesao/u1251208-acoplamento_vs_coesao.md"
+    "u2260202-notificação_eventos/u2260202-notificação_eventos.md"
   ]
 }
