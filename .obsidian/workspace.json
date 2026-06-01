@@ -11,10 +11,14 @@
             "id": "f387392215c0590b",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "2026-05-26 autenticacao web/2026-05-26 autenticacao web.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "2026-05-26 autenticacao web"
             }
           }
         ]
@@ -175,8 +179,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "f387392215c0590b",
+  "active": "5a193448f5088279",
   "lastOpenFiles": [
+    "2026-06-01 Rev. Exceções e LOGs",
     "README.md",
     "2026-05-18 arquitetura web/2026-05-18 arquitetura web.md",
     "2026-05-11 web basico/2026-05-11 web basico.md",
