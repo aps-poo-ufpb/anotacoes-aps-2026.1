@@ -1,3 +1,6 @@
+---
+feature: projetos/UFPB.2026.1/APS2026.1/anotacoes-aps-2026.1/2026-05-26 autenticacao web/attachments/2026-05-26 autenticacao web 2026-05-25 08.28.13.excalidraw.svg
+---
 ![2026-05-26 autenticacao web 2026-05-25 08.28.13.excalidraw](attachments/2026-05-26%20autenticacao%20web%202026-05-25%2008.28.13.excalidraw.md)
 
 ![](attachments/2026-05-26%20autenticacao%20web%202026-05-25%2008.28.13.excalidraw.svg)
