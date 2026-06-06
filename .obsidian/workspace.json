@@ -32,9 +32,51 @@
               "icon": "lucide-file",
               "title": "2026-06-01 Rev. Exceções e LOGs"
             }
+          },
+          {
+            "id": "391fbd0800d7349b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2026-06-01 Rev. Exceções e LOGs/ANEXO - Exceções e Logs no desenvovlimento com IA.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "ANEXO - Exceções e Logs no desenvovlimento com IA"
+            }
+          },
+          {
+            "id": "fd3dc1a6d3f6389a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2026-06-01 Rev. Exceções e LOGs/2026-06-01 Rev. Exceções e LOGs.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2026-06-01 Rev. Exceções e LOGs"
+            }
+          },
+          {
+            "id": "749b5f2bd10072e0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2026-06-01 Rev. Exceções e LOGs/ANEXO - Exceções e Logs no desenvovlimento com IA.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "ANEXO - Exceções e Logs no desenvovlimento com IA"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -192,8 +234,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "8b03b2baa450c1c3",
+  "active": "749b5f2bd10072e0",
   "lastOpenFiles": [
+    "2026-06-01 Rev. Exceções e LOGs/2026-06-01 Rev. Exceções e LOGs.md",
+    "2026-06-01 Rev. Exceções e LOGs/ANEXO - Exceções e Logs no desenvovlimento com IA.md",
     "2026-06-01 Rev. Exceções e LOGs/attachments/2026-06-01 Rev. Exceções e LOGs 2026-06-01 08.44.14.excalidraw.md",
     "2026-06-01 Rev. Exceções e LOGs/attachments/attachments/CleanShot 2026-06-01 at 10.07.24@2x.png",
     "2026-06-01 Rev. Exceções e LOGs/attachments/attachments/CleanShot 2026-06-01 at 09.56.20@2x.png",
@@ -203,7 +247,6 @@
     "2026-06-01 Rev. Exceções e LOGs/attachments/attachments/CleanShot 2026-06-01 at 09.53.24@2x.png",
     "2026-06-01 Rev. Exceções e LOGs/attachments/attachments/CleanShot 2026-06-01 at 09.47.53@2x.png",
     "2026-06-01 Rev. Exceções e LOGs/attachments/attachments",
-    "2026-06-01 Rev. Exceções e LOGs/2026-06-01 Rev. Exceções e LOGs.md",
     "2026-06-01 Rev. Exceções e LOGs/attachments/2026-06-01 Rev. Exceções e LOGs 2026-06-01 08.44.14.excalidraw.svg",
     "2026-06-01 Rev. Exceções e LOGs/attachments",
     "2026-05-26 autenticacao web/2026-05-26 autenticacao web.md",
