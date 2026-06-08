@@ -81,16 +81,28 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2026-06-01 Rev. Exceções e LOGs/2026-06-01 Rev. Exceções e LOGs.md",
+                "file": "2026-06-08 Projeto Kickoff/2026-06-08 Projeto Kickoff.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-06-01 Rev. Exceções e LOGs"
+              "title": "2026-06-08 Projeto Kickoff"
+            }
+          },
+          {
+            "id": "8dedb893c45246e1",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "2026-06-08 Projeto Kickoff/attachments/2026-06-08 Projeto Kickoff 2026-06-08 08.24.34.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "2026-06-08 Projeto Kickoff 2026-06-08 08.24.34.excalidraw"
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -147,7 +159,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "98ffb5414c9c8807",
@@ -248,10 +261,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "a3550f159b7a1d7c",
+  "active": "53fffa32bb56612d",
   "lastOpenFiles": [
-    "2026-06-01 Rev. Exceções e LOGs/ANEXO - Exceções e Logs no desenvovlimento com IA.md",
+    "2026-06-08 Projeto Kickoff/attachments/2026-06-08 Projeto Kickoff 2026-06-08 08.24.34.excalidraw.md",
+    "2026-06-08 Projeto Kickoff/2026-06-08 Projeto Kickoff.md",
+    "2026-06-08 Projeto Kickoff/attachments/2026-06-08 Projeto Kickoff 2026-06-08 08.24.34.excalidraw.svg",
+    "2026-06-08 Projeto Kickoff/attachments",
     "2026-06-01 Rev. Exceções e LOGs/2026-06-01 Rev. Exceções e LOGs.md",
+    "2026-06-08 Projeto Kickoff",
+    "2026-06-01 Rev. Exceções e LOGs/ANEXO - Exceções e Logs no desenvovlimento com IA.md",
     "2026-06-01 Rev. Exceções e LOGs/attachments/2026-06-01 Rev. Exceções e LOGs 2026-06-01 08.44.14.excalidraw.md",
     "2026-06-01 Rev. Exceções e LOGs/attachments/attachments/CleanShot 2026-06-01 at 10.07.24@2x.png",
     "2026-06-01 Rev. Exceções e LOGs/attachments/attachments/CleanShot 2026-06-01 at 09.56.20@2x.png",
@@ -272,14 +290,11 @@
     "2026-05-11 web basico/attachments/2026-05-11 web basico 2026-05-11 08.40.53.excalidraw.md",
     "2026-05-18 arquitetura web/attachments/2026-05-18 arquitetura web 2026-05-18 08.33.38.excalidraw.md",
     "2026-05-26 autenticacao web/attachments/attachments/Pasted Image 20260525083555_535.png",
-    "2026-05-26 autenticacao web/attachments/attachments/Pasted Image 20260525083408_892.png",
     "2026-05-26 autenticacao web/attachments/attachments",
     "2026-05-26 autenticacao web/attachments",
     "2026-05-26 autenticacao web",
     "2026-05-18 arquitetura web/attachments/attachments",
     "2026-05-18 arquitetura web/attachments",
-    "2026-05-18 arquitetura web",
-    "2026-05-11 web basico/attachments",
     "2026-05-04 sysacademico/2026-05-04 sysacademico.md",
     "2026-05-04 Revisão classes/Untitled.md",
     "2026-04-27 1a aula/2026-04-27 1a aula.md",
@@ -292,9 +307,6 @@
     "u2260323- Factory/attachments/u2260323- Factory 2026-03-23 08.33.18.excalidraw.md",
     "u2260309-Composite/attachments/u2260309-Composite 2026-03-09 09.19.50.excalidraw.md",
     "u2260316-Decorator e Template Method/attachments/u2260316-Decorator 2026-03-16 08.43.00.excalidraw.md",
-    "u2260309-Composite/u2260309-Composite.md",
-    "u2260302-Strategy-Observer/attachments/u2260302-Strategy-Observer 2026-03-02 08.20.08.excalidraw.md",
-    "u2260302-Strategy-Observer/u2260302-Strategy-Observer.md",
-    "u2260209-Sobre o projeto/attachments/u2260209-Observer 2026-02-09 08.29.09.excalidraw.md"
+    "u2260309-Composite/u2260309-Composite.md"
   ]
 }
