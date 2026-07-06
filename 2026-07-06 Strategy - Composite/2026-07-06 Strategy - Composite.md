@@ -1,2 +1,0 @@
-![](attachments/2026-07-06%20Strategy%20-%20Composite%202026-07-06%2008.38.48.excalidraw.svg)
-%%[🖋 Edit in Excalidraw](attachments/2026-07-06%20Strategy%20-%20Composite%202026-07-06%2008.38.48.excalidraw.md)%%
