@@ -20,21 +20,8 @@
               "icon": "lucide-file",
               "title": "2026-07-06 Strategy - Composite"
             }
-          },
-          {
-            "id": "419ae3c9cb6fc720",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "2026-07-06 Strategy - Composite/attachments/2026-07-06 Strategy - Composite 2026-07-06 08.38.48.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "2026-07-06 Strategy - Composite 2026-07-06 08.38.48.excalidraw"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -193,11 +180,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "419ae3c9cb6fc720",
+  "active": "99a86dc2d6cf6af8",
   "lastOpenFiles": [
+    "2026-07-06 Strategy - Composite/attachments/2026-07-06 Strategy - Composite 2026-07-06 08.38.48.excalidraw.md",
     "2026-07-06 Strategy - Composite/2026-07-06 Strategy - Composite.md",
     "2026-07-06 Strategy - Composite/attachments/2026-07-06 Strategy - Composite 2026-07-06 08.38.48.excalidraw.svg",
-    "2026-07-06 Strategy - Composite/attachments/2026-07-06 Strategy - Composite 2026-07-06 08.38.48.excalidraw.md",
     "2026-07-06 Strategy - Composite/attachments",
     "2026-06-08 Projeto Kickoff/2026-06-08 Projeto Kickoff.md",
     "2026-07-06 Strategy - Composite",
