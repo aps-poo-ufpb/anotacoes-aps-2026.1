@@ -8,115 +8,33 @@
         "type": "tabs",
         "children": [
           {
-            "id": "f387392215c0590b",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "2026-05-26 autenticacao web/attachments/2026-05-26 autenticacao web 2026-05-25 08.28.13.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "2026-05-26 autenticacao web 2026-05-25 08.28.13.excalidraw"
-            }
-          },
-          {
-            "id": "8b03b2baa450c1c3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "2026-06-01 Rev. Exceções e LOGs/2026-06-01 Rev. Exceções e LOGs.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "2026-06-01 Rev. Exceções e LOGs"
-            }
-          },
-          {
-            "id": "391fbd0800d7349b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "2026-06-01 Rev. Exceções e LOGs/ANEXO - Exceções e Logs no desenvovlimento com IA.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "ANEXO - Exceções e Logs no desenvovlimento com IA"
-            }
-          },
-          {
-            "id": "fd3dc1a6d3f6389a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "2026-06-01 Rev. Exceções e LOGs/2026-06-01 Rev. Exceções e LOGs.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "2026-06-01 Rev. Exceções e LOGs"
-            }
-          },
-          {
-            "id": "749b5f2bd10072e0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "2026-06-01 Rev. Exceções e LOGs/ANEXO - Exceções e Logs no desenvovlimento com IA.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "ANEXO - Exceções e Logs no desenvovlimento com IA"
-            }
-          },
-          {
-            "id": "a3550f159b7a1d7c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "2026-06-08 Projeto Kickoff/2026-06-08 Projeto Kickoff.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "2026-06-08 Projeto Kickoff"
-            }
-          },
-          {
-            "id": "8dedb893c45246e1",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "2026-06-08 Projeto Kickoff/attachments/2026-06-08 Projeto Kickoff 2026-06-08 08.24.34.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "2026-06-08 Projeto Kickoff 2026-06-08 08.24.34.excalidraw"
-            }
-          },
-          {
             "id": "99a86dc2d6cf6af8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2026-06-08 Projeto Kickoff/2026-06-08 Projeto Kickoff.md",
+                "file": "2026-07-06 Strategy - Composite/2026-07-06 Strategy - Composite.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-06-08 Projeto Kickoff"
+              "title": "2026-07-06 Strategy - Composite"
+            }
+          },
+          {
+            "id": "419ae3c9cb6fc720",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "2026-07-06 Strategy - Composite/attachments/2026-07-06 Strategy - Composite 2026-07-06 08.38.48.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "2026-07-06 Strategy - Composite 2026-07-06 08.38.48.excalidraw"
             }
           }
         ],
-        "currentTab": 7
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -173,7 +91,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "98ffb5414c9c8807",
@@ -274,10 +193,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "99a86dc2d6cf6af8",
+  "active": "419ae3c9cb6fc720",
   "lastOpenFiles": [
-    "2026-06-08 Projeto Kickoff/attachments/2026-06-08 Projeto Kickoff 2026-06-08 08.24.34.excalidraw.md",
+    "2026-07-06 Strategy - Composite/2026-07-06 Strategy - Composite.md",
+    "2026-07-06 Strategy - Composite/attachments/2026-07-06 Strategy - Composite 2026-07-06 08.38.48.excalidraw.svg",
+    "2026-07-06 Strategy - Composite/attachments/2026-07-06 Strategy - Composite 2026-07-06 08.38.48.excalidraw.md",
+    "2026-07-06 Strategy - Composite/attachments",
     "2026-06-08 Projeto Kickoff/2026-06-08 Projeto Kickoff.md",
+    "2026-07-06 Strategy - Composite",
+    "2026-06-08 Projeto Kickoff/attachments/2026-06-08 Projeto Kickoff 2026-06-08 08.24.34.excalidraw.md",
     "2026-06-08 Projeto Kickoff/attachments/2026-06-08 Projeto Kickoff 2026-06-08 08.24.34.excalidraw.svg",
     "2026-06-08 Projeto Kickoff/attachments",
     "2026-06-01 Rev. Exceções e LOGs/2026-06-01 Rev. Exceções e LOGs.md",
@@ -302,12 +226,9 @@
     "2026-05-11 web basico/2026-05-11 web basico.md",
     "2026-05-11 web basico/attachments/2026-05-11 web basico 2026-05-11 08.40.53.excalidraw.md",
     "2026-05-18 arquitetura web/attachments/2026-05-18 arquitetura web 2026-05-18 08.33.38.excalidraw.md",
-    "2026-05-26 autenticacao web/attachments/attachments/Pasted Image 20260525083555_535.png",
     "2026-05-26 autenticacao web/attachments/attachments",
     "2026-05-26 autenticacao web/attachments",
     "2026-05-26 autenticacao web",
-    "2026-05-18 arquitetura web/attachments/attachments",
-    "2026-05-18 arquitetura web/attachments",
     "2026-05-04 sysacademico/2026-05-04 sysacademico.md",
     "2026-05-04 Revisão classes/Untitled.md",
     "2026-04-27 1a aula/2026-04-27 1a aula.md",
@@ -318,8 +239,6 @@
     "u2260316-Decorator e Template Method/attachments/u2260316-Decorator e Template Method 2026-03-16 09.56.45.excalidraw.md",
     "u2260323- Factory/u2260323- Factory.md",
     "u2260323- Factory/attachments/u2260323- Factory 2026-03-23 08.33.18.excalidraw.md",
-    "u2260309-Composite/attachments/u2260309-Composite 2026-03-09 09.19.50.excalidraw.md",
-    "u2260316-Decorator e Template Method/attachments/u2260316-Decorator 2026-03-16 08.43.00.excalidraw.md",
-    "u2260309-Composite/u2260309-Composite.md"
+    "u2260309-Composite/attachments/u2260309-Composite 2026-03-09 09.19.50.excalidraw.md"
   ]
 }
