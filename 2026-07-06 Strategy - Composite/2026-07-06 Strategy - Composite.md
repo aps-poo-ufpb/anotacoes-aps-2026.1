@@ -1,82 +1,566 @@
-## Seção ampliada — Strategy
 
-## Padrão Strategy
+[2026-07-06 Strategy - Composite 2026-07-06 08.38.48.excalidraw](attachments/2026-07-06%20Strategy%20-%20Composite%202026-07-06%2008.38.48.excalidraw.md)
 
-### Ideia central do Strategy
+[Seção ampliada — Strategy](Seção%20ampliada%20—%20Strategy.md)
+# Fichamento — Aula APS 2026.1: Strategy e Composite
 
-O padrão **Strategy** é usado quando uma classe precisa executar uma ação, mas essa ação pode ser realizada de formas diferentes.
+## 1. Orientações específicas sobre o projeto, requisitos e atividades
 
-A palavra “strategy” significa **estratégia**. Ou seja, para uma mesma operação, o sistema pode escolher entre diferentes estratégias de execução.
+### Requisitos da primeira entrega do projeto
 
-A ideia principal é:
+Foi reforçado que os projetos da disciplina devem atender aos requisitos definidos anteriormente para a primeira entrega:
 
-> Separar o comportamento variável em classes próprias, permitindo trocar esse comportamento sem alterar a classe principal.
+- Uso de **Docker**.
+- Front-end usando **Thymeleaf** com **Bootstrap**.
+- Back-end usando **Javalin**.
+- Banco de dados **PostgreSQL**.
+- Projeto em **produção**.
+- Uso de **log**.
+- Presença de **testes automatizados**.
+- Implementação de **autenticação**.
+- Implementação de **autorização**.
+- Organização modular do código.
 
-Em vez de colocar vários `if`, `else if` ou `switch` dentro de uma classe para decidir como uma operação será feita, o Strategy permite criar uma interface comum e várias classes concretas, cada uma com uma implementação diferente.
+### Script de avaliação e feedback
+
+Foi informado que será executado um **script de avaliação** nos projetos da turma.
+
+Esse script irá verificar automaticamente se os projetos estão atendendo aos requisitos solicitados. O resultado será gerado na raiz de cada projeto em um arquivo de texto no formato **Markdown**, contendo o feedback da avaliação.
+
+Caso algum feedback esteja incorreto, os alunos devem entrar em contato com o professor e explicar o problema. O professor analisará o projeto especificamente. Foi reforçado que a avaliação só será considerada fechada quando professor e grupo estiverem de acordo sobre o resultado.
+
+### Atividades sobre Strategy e Composite
+
+A aula introduziu dois padrões de projeto:
+
+- **Strategy**
+- **Composite**
+
+Serão disponibilizadas duas atividades, uma sobre cada padrão.
+
+Essas atividades não serão obrigatórias para nota, mas foram recomendadas como prática importante para aprendizagem. A orientação foi que os alunos façam as atividades em casa para consolidar o entendimento.
+
+### Aplicação dos padrões no projeto da disciplina
+
+Os alunos foram orientados a pensar, com apoio de ferramentas de IA, em situações do próprio projeto nas quais poderiam aplicar os padrões **Strategy** e **Composite**.
+
+A recomendação foi perguntar à IA algo como:
+
+> Acabei de aprender o padrão Strategy. Este é um projeto de disciplina e eu quero aplicar o padrão Strategy neste projeto. Em que situações eu poderia usar o Strategy?
+
+E também fazer uma pergunta semelhante para o padrão **Composite**.
+
+Foi destacado que essa abordagem é pedagógica. Na prática profissional, o ideal é primeiro identificar uma necessidade real de projeto e só depois aplicar um padrão.
+
+Caso a IA force demais a aplicação de um padrão, ou caso o grupo não encontre uma situação adequada, os alunos devem procurar o professor para discutir.
+
+### Comunicação sobre problemas no projeto
+
+Foi reforçado que os alunos devem enviar mensagem pelo **Discord** caso estejam com problemas no projeto, especialmente problemas relacionados ao servidor ou à implantação.
+
+A orientação foi não esperar apenas pela aula para resolver essas pendências.
 
 ---
 
-### Problema que o Strategy resolve
+## 2. Introdução aos padrões de projeto
 
-Imagine uma classe que precisa executar uma ação, mas essa ação pode variar.
+### O que são padrões de projeto
+
+Padrões de projeto são **soluções reutilizáveis para problemas recorrentes de design de software**.
+
+Na aula, o foco foi nos padrões aplicados à **orientação a objetos**, embora tenha sido esclarecido que nem todo padrão de projeto precisa necessariamente ser orientado a objetos.
+
+A ideia central é que, ao longo do desenvolvimento de muitos sistemas, certos problemas aparecem repetidamente. Desenvolvedores experientes perceberam que esses problemas recorrentes podiam ser resolvidos com soluções semelhantes. Essas soluções passaram a ser organizadas como padrões.
+
+### Padrão de projeto como ferramenta de design
+
+Um padrão de projeto funciona como uma ferramenta de **design de software**.
+
+Ele não deve ser visto como algo que se usa apenas porque é “bonito” ou “avançado”, mas como uma solução para um problema concreto de organização, manutenção, extensão ou desacoplamento do código.
+
+Padrões de projeto geralmente ajudam a:
+
+- melhorar a manutenibilidade;
+- reduzir acoplamento;
+- aumentar coesão;
+- encapsular variações;
+- organizar responsabilidades;
+- facilitar extensões futuras;
+- melhorar a comunicação entre desenvolvedores.
+
+Apesar disso, padrões também podem aumentar a complexidade quando usados sem necessidade.
+
+### Não é necessário decorar muitos padrões
+
+Foi enfatizado que não é necessário saber vários padrões de projeto de cabeça.
+
+A competência mais importante é saber que:
+
+- existem bibliotecas e catálogos de padrões;
+- problemas de projeto podem ter soluções conhecidas;
+- é possível procurar um padrão quando se identifica um problema recorrente;
+- o desenvolvedor deve entender o problema antes de aplicar a solução.
+
+Na disciplina, os padrões serão usados principalmente para aprofundar o uso da orientação a objetos.
+
+---
+
+## 3. Uso pedagógico dos padrões na disciplina
+
+A aplicação dos padrões no projeto da disciplina terá um caráter pedagógico.
+
+Isso significa que, em alguns casos, a turma será incentivada a aplicar padrões mesmo que a necessidade no projeto não seja tão forte quanto seria em um projeto profissional real.
+
+O objetivo é dar aos alunos a oportunidade de implementar os padrões em um projeto concreto.
+
+### Diferença entre uso pedagógico e uso profissional
+
+No uso profissional, um padrão só deveria ser aplicado quando existe uma necessidade real.
+
+Na aula, foi reforçado:
+
+- Desenvolvedores de software não são adivinhos.
+- Não se deve prever funcionalidades futuras sem base em requisitos.
+- Não se deve adicionar complexidade sem motivo.
+- Se o requisito atual não exige uma solução extensível, talvez não seja necessário aplicar um padrão.
+
+### Padrões aumentam a complexidade
+
+Foi destacado que padrões de projeto são uma “faca de dois gumes”.
+
+Eles podem melhorar a manutenibilidade, mas também aumentam a complexidade do código.
+
+Ao aplicar um padrão, o sistema pode passar a exigir que quem for manter o código entenda:
+
+- o padrão usado;
+- o motivo de ele estar ali;
+- a estrutura adicional criada;
+- a relação entre interfaces, classes concretas e objetos.
+
+Esse custo foi chamado de **overhead cognitivo** ou carga cognitiva adicional.
+
+### Exemplo de uso exagerado de padrões
+
+Foi contado um exemplo em que, durante a graduação, um sistema simples acabou recebendo muitos padrões de projeto sem necessidade real.
+
+A motivação era aprender, mas o resultado foi um sistema excessivamente modular e difícil de entender.
+
+A lição extraída foi:
+
+- aplicar padrões ajuda a aprender;
+- aplicar padrões sem necessidade real pode tornar o sistema difícil de manter;
+- modularidade excessiva também pode prejudicar a simplicidade;
+- simplicidade também é uma qualidade de projeto.
+
+---
+
+## 4. Overhead cognitivo e manutenibilidade
+
+### O que é overhead cognitivo
+
+Overhead cognitivo é o conjunto de conceitos que uma pessoa precisa entender antes de conseguir trabalhar em um sistema.
+
+No caso dos projetos da disciplina, já existe uma carga cognitiva associada a:
+
+- Java;
+- HTML;
+- Thymeleaf;
+- Bootstrap;
+- Javalin;
+- PostgreSQL;
+- Docker;
+- arquitetura MVC;
+- controllers;
+- services;
+- models;
+- persistência;
+- autenticação;
+- autorização;
+- logs;
+- testes.
+
+Quando se adiciona um padrão de projeto, mais uma camada conceitual é introduzida.
+
+### Exemplo: MVC
+
+O padrão arquitetural **MVC** foi usado como exemplo.
+
+Em um projeto MVC, quem for ler o código precisa entender conceitos como:
+
+- Model;
+- View;
+- Controller;
+- Service.
+
+Esses conceitos ajudam a organizar o sistema, mas também exigem que o desenvolvedor entenda a estrutura antes de alterar o código.
+
+### Equilíbrio entre simplicidade e manutenção
+
+A aula reforçou que uma solução de projeto precisa equilibrar:
+
+- simplicidade;
+- clareza;
+- flexibilidade;
+- manutenibilidade;
+- custo cognitivo.
+
+Um padrão deve ser usado quando a complexidade adicional vale a pena.
+
+---
+
+## 5. Orientação a objetos como base dos padrões
+
+Foi reforçado que os padrões estudados na disciplina não exigirão recursos avançados de Java.
+
+Os principais recursos utilizados serão:
+
+- classes;
+- objetos;
+- interfaces;
+- herança;
+- polimorfismo.
+
+O ponto central não é aprender uma sintaxe nova, mas aprender a usar os recursos básicos da orientação a objetos de maneira mais elegante e adequada ao projeto.
+
+---
+
+## 6. Modelos, classes e requisitos
+
+### Classe como modelo
+
+Uma classe foi definida como um **modelo**.
+
+Um modelo é uma representação simplificada de alguma coisa.
+
+No contexto de orientação a objetos, uma classe representa uma entidade ou conceito relevante para o sistema.
+
+Exemplo usado na aula:
+
+- Classe `Estudante`
+- Atributos:
+  - `nome`
+  - `matricula`
+
+A classe `Estudante` representa, para aquele sistema, aquilo que é necessário saber sobre um estudante.
+
+### Um modelo deve conter apenas o necessário
+
+Foi enfatizado que um modelo não deve conter informações sem necessidade.
+
+Por exemplo, ao pensar em uma classe `Estudante`, alguém poderia sugerir atributos como:
+
+- e-mail;
+- curso;
+- período;
+- disciplinas matriculadas.
+
+Mas esses atributos só devem ser adicionados se houver um requisito do sistema que justifique sua presença.
+
+A regra apresentada foi:
+
+> O modelo deve representar a informação necessária para que o sistema tome decisões.
+
+Um modelo com informação demais pode ser ruim, porque aumenta a complexidade sem necessidade.
+
+### Não adicionar informações sem validar com o cliente
+
+Foi reforçado que o desenvolvedor não deve adicionar informações nas classes apenas porque acha que conhece o negócio.
+
+Mesmo que o desenvolvedor entenda bem o domínio, os dados necessários devem estar ligados aos requisitos e precisam ser validados com o cliente.
+
+### Desenvolvedor precisa entender o negócio
+
+Apesar disso, foi comentado que profissionais de computação frequentemente acabam entendendo muito sobre o negócio do cliente.
+
+Isso acontece porque, para desenvolver um sistema, é necessário compreender:
+
+- entidades;
+- relacionamentos;
+- regras de negócio;
+- processos;
+- exceções;
+- integrações entre áreas.
+
+Muitas vezes, o conhecimento sobre o negócio está espalhado em diferentes setores da organização. O desenvolvedor precisa reunir essas informações para construir um sistema coerente.
+
+---
+
+## 7. Objetos, instâncias e referências em memória
+
+Antes de avançar para o padrão Strategy, a aula fez uma revisão importante sobre objetos, instâncias e referências.
+
+### Instanciar uma classe
+
+Quando se faz:
+
+```java
+Estudante e = new Estudante();
+```
+
+está sendo criada uma instância da classe `Estudante`.
+
+Na prática, isso significa que um espaço na memória é reservado para armazenar os dados daquele objeto.
+
+A variável `e` não é o objeto em si. Ela é uma referência para a posição de memória onde o objeto está armazenado.
+
+### Variáveis como referências
+
+Uma variável de objeto não deve ser imaginada como uma “caixa” que contém o objeto.
+
+Ela deve ser entendida como uma **referência**, uma “seta” ou um “apontador” para uma posição de memória.
 
 Exemplo:
 
-- salvar em CSV;
-- salvar em JSON;
-- salvar em banco de dados;
-- salvar em arquivo texto.
+```java
+Estudante e = new Estudante();
+e.setNome("Joao");
 
-Uma solução simples, mas ruim para manutenção, seria colocar tudo dentro de um único método:
+Estudante e2 = e;
+```
+
+Nesse caso:
+
+- `e` aponta para um objeto `Estudante`;
+- `e2` passa a apontar para o mesmo objeto;
+- não foi criada uma cópia do estudante;
+- as duas variáveis referenciam a mesma instância.
+
+Se for chamado:
 
 ```java
-class Estudante {
-    private String nome;
-    private String matricula;
+e.getNome();
+e2.getNome();
+```
 
-    public void salvar(String tipo) {
-        if (tipo.equals("CSV")) {
-            // Código para salvar em CSV
-        } else if (tipo.equals("JSON")) {
-            // Código para salvar em JSON
-        } else if (tipo.equals("BANCO")) {
-            // Código para salvar no banco
-        }
+ambos retornam o mesmo nome, porque acessam o mesmo objeto.
+
+### Referência nula
+
+Se for feito:
+
+```java
+e = null;
+```
+
+a variável `e` deixa de apontar para o objeto.
+
+Mas, se `e2` ainda aponta para aquele objeto, ele continua acessível:
+
+```java
+e2.getNome();
+```
+
+Esse código ainda funciona porque `e2` mantém a referência.
+
+Já o seguinte código não funciona:
+
+```java
+e.getNome();
+```
+
+porque `e` está apontando para `null`.
+
+### Listas também armazenam referências
+
+A aula também revisou o funcionamento de listas.
+
+Quando se adiciona um objeto a uma lista, a lista não cria uma cópia completa do objeto. Ela armazena uma referência para o objeto.
+
+Exemplo:
+
+```java
+ArrayList<Estudante> lista = new ArrayList<>();
+lista.add(e2);
+```
+
+A lista passa a ter uma referência para o mesmo objeto apontado por `e2`.
+
+Se existirem três objetos `Estudante` diferentes, todos com o nome “Maria”, eles são três instâncias distintas, mesmo que tenham o mesmo valor no atributo `nome`.
+
+### Espaço de memória em listas
+
+Se três objetos estudantes forem adicionados a uma lista, o espaço ocupado não será o dobro.
+
+A memória terá:
+
+- o espaço ocupado pelos três objetos;
+- mais o espaço ocupado pela estrutura da lista;
+- mais as referências dentro da lista.
+
+A lista não duplica os objetos.
+
+### ArrayList e capacidade interna
+
+Foi mencionado em aula que um `ArrayList`, ao ser instanciado, trabalha com uma estrutura interna semelhante a um array com capacidade inicial.
+
+Como simplificação didática, foi citado o tamanho 10.
+
+Para evitar confusão, é importante entender que esse detalhe depende da implementação e da versão do Java. Em versões modernas, o `ArrayList` pode começar com um array interno vazio e alocar capacidade padrão quando os primeiros elementos são adicionados.
+
+O ponto essencial da aula é:
+
+> A lista armazena referências para objetos, não cópias completas desses objetos.
+
+### Alteração de elementos em lista
+
+Foi comentado que, em Java, não se pode atribuir diretamente a uma chamada de `get`.
+
+A forma correta de substituir um elemento da lista é usar `set`.
+
+Exemplo:
+
+```java
+lista.set(0, null);
+```
+
+---
+
+## 8. Classe, instância e o uso de `this`
+
+### Programar na classe, executar na instância
+
+Uma das mensagens centrais da aula foi:
+
+> Eu programo na classe, mas executo na instância.
+
+A classe especifica o comportamento. A execução acontece nos objetos instanciados a partir daquela classe.
+
+Se existem duas instâncias de uma mesma classe, o mesmo método pode ser executado em cada uma delas, mas usando os dados de cada objeto.
+
+### O que é `this`
+
+O `this` representa a própria instância que está executando o método.
+
+Quando um objeto executa um método e passa `this` como parâmetro, ele está passando uma referência para si mesmo.
+
+Exemplo conceitual:
+
+```java
+gravador.salvar(this);
+```
+
+Nesse caso, o objeto atual está dizendo ao gravador:
+
+> Salve este objeto que está executando o método agora.
+
+Essa explicação foi importante para entender o exemplo do padrão Strategy.
+
+### Observação sobre String e memória
+
+Durante a explicação de referências, foi usado o exemplo de uma `String` associada a uma sequência de caracteres.
+
+Essa explicação deve ser entendida de forma didática. A implementação interna de `String` pode variar conforme a versão do Java.
+
+O ponto importante para a aula é:
+
+> Objetos podem referenciar outros objetos ou estruturas internas, e variáveis de objeto trabalham com referências.
+
+---
+
+## 9. Padrão Strategy
+
+### Problema inicial
+
+O problema usado para introduzir o padrão Strategy foi o seguinte:
+
+Existe uma classe `Estudante`, com atributos como:
+
+- `nome`;
+- `matricula`.
+
+Essa classe precisa ter um método para salvar o estudante.
+
+A questão proposta foi:
+
+> Como permitir que o estudante seja salvo de diferentes formas, por exemplo em CSV ou em JSON?
+
+### Observação sobre o exemplo `Estudante.salvar()`
+
+O exemplo de `Estudante.salvar()` foi usado de forma pedagógica para explicar o padrão Strategy.
+
+Em sistemas organizados em camadas, como os projetos da disciplina, a persistência normalmente não fica dentro da entidade de domínio. Em muitos casos, a gravação de dados fica em classes como:
+
+- DAO;
+- Repository;
+- Service;
+- classe de persistência;
+- classe exportadora.
+
+Portanto, a ideia principal do exemplo não é dizer que toda entidade deve saber salvar a si mesma.
+
+A ideia é mostrar que:
+
+> Quando uma ação pode ser realizada de diferentes formas, essas formas podem ser separadas em estratégias diferentes.
+
+### Primeira solução: colocar tudo dentro de `Estudante`
+
+Uma primeira possibilidade seria colocar o código de gravação diretamente dentro da classe `Estudante`.
+
+Por exemplo, o método `salvar` poderia abrir um arquivo, usar `BufferedWriter`, montar uma linha CSV e gravar os dados.
+
+Mas essa solução mistura responsabilidades:
+
+- a classe `Estudante` representa o modelo do estudante;
+- o código de gravação em arquivo representa uma preocupação de persistência.
+
+Isso aumenta o acoplamento e reduz a separação de responsabilidades.
+
+### Separando a gravação em outra classe
+
+A solução inicial proposta foi criar uma classe responsável por gravar o estudante em CSV.
+
+Exemplo conceitual:
+
+```java
+class GravadorCSV {
+    void salvar(Estudante estudante) {
+        // Código com BufferedWriter, FileWriter etc.
     }
 }
 ```
 
-Esse código funciona, mas tem problemas:
+Nesse caso, a classe `GravadorCSV` fica responsável pelos detalhes de Java IO e escrita em arquivo.
 
-- a classe `Estudante` passa a conhecer várias formas de persistência;
-- o método `salvar` cresce a cada nova forma de gravação;
-- para adicionar uma nova forma de salvar, é preciso alterar `Estudante`;
-- a classe fica com baixa coesão, porque mistura dados do estudante com lógica de persistência;
-- o código fica mais difícil de testar e manter.
+A classe `Estudante` deixa de conhecer os detalhes de gravação em CSV.
 
-O Strategy resolve isso extraindo cada forma de salvar para uma classe separada.
+### Benefício parcial: separação de responsabilidades
 
----
+Com essa separação:
 
-### Estrutura básica do Strategy
+- `Estudante` não precisa importar classes de `java.io`;
+- `GravadorCSV` fica acoplado aos detalhes de gravação;
+- o modelo fica mais limpo;
+- a persistência fica em uma classe específica.
 
-O Strategy normalmente envolve três papéis:
+Isso já é uma melhoria, porque reduz o acoplamento entre o modelo e os detalhes técnicos da gravação.
 
-- **Contexto**: classe que usa uma estratégia.
-- **Strategy**: interface comum para as estratégias.
-- **ConcreteStrategy**: classes concretas que implementam as diferentes estratégias.
+### Problema restante: acoplamento com uma implementação específica
 
-No exemplo da aula:
+Mesmo separando a gravação em outra classe, ainda existe um problema.
 
-- Contexto: `Estudante`;
-- Strategy: `GravadorEstudante`;
-- ConcreteStrategy: `GravadorCSV`, `GravadorJSON`, `GravadorBancoDeDados`.
+Se `Estudante` tiver um atributo do tipo `GravadorCSV`, ele continua acoplado a uma implementação específica.
 
----
+Exemplo conceitual:
 
-### Exemplo 1 — Salvando estudante em formatos diferentes
+```java
+class Estudante {
+    private GravadorCSV gravador;
 
-#### Interface da estratégia
+    void salvar() {
+        gravador.salvar(this);
+    }
+}
+```
+
+Nesse caso, se for necessário mudar de CSV para JSON, a classe `Estudante` precisará ser alterada.
+
+Isso não é ideal.
+
+### Solução: usar uma interface
+
+Para quebrar o acoplamento entre `Estudante` e as formas concretas de gravação, foi criada uma interface.
+
+Exemplo conceitual:
 
 ```java
 interface GravadorEstudante {
@@ -84,40 +568,23 @@ interface GravadorEstudante {
 }
 ```
 
-#### Estratégia para CSV
+A partir dela, diferentes estratégias podem ser implementadas:
 
 ```java
 class GravadorCSV implements GravadorEstudante {
     public void salvar(Estudante estudante) {
-        // Código para salvar estudante em CSV
-        System.out.println("Salvando estudante em CSV");
+        // Salva em CSV
     }
 }
-```
 
-#### Estratégia para JSON
-
-```java
 class GravadorJSON implements GravadorEstudante {
     public void salvar(Estudante estudante) {
-        // Código para salvar estudante em JSON
-        System.out.println("Salvando estudante em JSON");
+        // Salva em JSON
     }
 }
 ```
 
-#### Estratégia para banco de dados
-
-```java
-class GravadorBancoDeDados implements GravadorEstudante {
-    public void salvar(Estudante estudante) {
-        // Código para salvar estudante no banco de dados
-        System.out.println("Salvando estudante no banco de dados");
-    }
-}
-```
-
-#### Classe que usa a estratégia
+Agora, a classe `Estudante` depende da interface, e não das classes concretas:
 
 ```java
 class Estudante {
@@ -125,18 +592,663 @@ class Estudante {
     private String matricula;
     private GravadorEstudante gravador;
 
-    public Estudante(String nome, String matricula) {
-        this.nome = nome;
-        this.matricula = matricula;
+    public void setGravador(GravadorEstudante gravador) {
+        this.gravador = gravador;
     }
 
-    public String getNome() {
-        return nome;
+    public void salvar() {
+        gravador.salvar(this);
+    }
+}
+```
+
+### Observação sobre o gravador receber ou armazenar o estudante
+
+Durante a explicação, apareceu a ideia de o gravador ter uma referência para o estudante.
+
+No exemplo final do Strategy, a forma mais simples é o gravador **não armazenar** o estudante como atributo.
+
+Ele recebe o estudante no momento da chamada:
+
+```java
+gravador.salvar(this);
+```
+
+Assim, o gravador executa a ação usando o objeto recebido como parâmetro.
+
+### Cuidado: estratégia não configurada
+
+No exemplo anterior, se `gravador` estiver `null`, a chamada a `gravador.salvar(this)` causará erro.
+
+Em uma implementação real, é necessário garantir que a estratégia foi configurada antes de chamar `salvar`.
+
+Uma forma simples de tratar isso é validar antes de executar:
+
+```java
+public void salvar() {
+    if (gravador == null) {
+        throw new IllegalStateException("Gravador não configurado");
     }
 
-    public String getMatricula() {
-        return matricula;
+    gravador.salvar(this);
+}
+```
+
+Também seria possível definir uma estratégia padrão.
+
+### Uso do Strategy
+
+No código cliente, é possível escolher a estratégia de gravação:
+
+```java
+Estudante e = new Estudante();
+e.setNome("Joao");
+
+e.setGravador(new GravadorCSV());
+e.salvar();
+```
+
+Se quiser trocar a estratégia:
+
+```java
+e.setGravador(new GravadorJSON());
+e.salvar();
+```
+
+A classe `Estudante` não precisa ser modificada para isso.
+
+### Definição didática de Strategy
+
+O padrão **Strategy** é usado quando uma classe precisa executar uma operação cujo comportamento pode variar.
+
+Cada variação é encapsulada em uma classe diferente, permitindo trocar o comportamento sem alterar a classe principal.
+
+Em outras palavras:
+
+> O Strategy encapsula algoritmos ou comportamentos intercambiáveis.
+
+No exemplo da aula:
+
+- a ação é salvar um estudante;
+- as estratégias são salvar em CSV, salvar em JSON, salvar em banco de dados etc.
+
+A quebra de acoplamento é uma consequência importante do Strategy, mas o problema principal é a existência de **diferentes formas de executar uma mesma ação**.
+
+### Strategy como ponto de extensibilidade
+
+O Strategy cria um ponto de extensibilidade no código.
+
+Se no futuro for necessário salvar o estudante em outro formato, basta criar uma nova classe que implemente a interface.
+
+Exemplo:
+
+```java
+class GravadorBancoDeDados implements GravadorEstudante {
+    public void salvar(Estudante estudante) {
+        // Salva no banco de dados
     }
+}
+```
+
+A classe `Estudante` continua igual.
+
+### Exemplos de uso do Strategy
+
+A aula apresentou outros exemplos de situações em que o Strategy pode ser aplicado.
+
+#### Cálculo de imposto
+
+Um produto pode ter diferentes formas de calcular imposto:
+
+- imposto estadual;
+- imposto federal;
+- IPI;
+- outras regras fiscais.
+
+Nesse caso, poderia haver uma interface de cálculo de imposto e diferentes estratégias concretas.
+
+#### Notificação
+
+Um sistema pode precisar notificar uma pessoa de diferentes formas:
+
+- e-mail;
+- SMS;
+- WhatsApp;
+- alerta na interface.
+
+Cada forma de notificação pode ser uma estratégia diferente.
+
+#### Cálculo de salário
+
+Um sistema pode calcular salário de formas diferentes dependendo do tipo de funcionário:
+
+- funcionário comum;
+- vendedor com comissão;
+- trabalhador com adicional de insalubridade;
+- funcionário com horas extras.
+
+Cada regra de cálculo pode ser implementada como uma estratégia.
+
+### Quando usar Strategy
+
+Use Strategy quando:
+
+- uma classe tem um método cuja implementação pode variar;
+- existem diferentes formas de executar a mesma ação;
+- você quer trocar o comportamento sem alterar a classe principal;
+- você quer reduzir acoplamento entre a entidade e suas variações de comportamento;
+- você quer permitir extensão futura por meio de novas classes;
+- você quer encapsular algoritmos ou comportamentos intercambiáveis.
+
+### Quando não usar Strategy
+
+Não use Strategy apenas porque o padrão é elegante.
+
+Evite aplicar Strategy quando:
+
+- existe apenas uma forma real de executar a ação;
+- não há requisito de variação;
+- a solução simples já atende;
+- a criação da interface e das classes extras só aumentaria a complexidade.
+
+### Papéis do Strategy
+
+O padrão Strategy costuma ter três papéis principais:
+
+- **Contexto**: classe que usa a estratégia. No exemplo, `Estudante`.
+- **Strategy**: interface comum das estratégias. No exemplo, `GravadorEstudante`.
+- **ConcreteStrategy**: implementações concretas. No exemplo, `GravadorCSV`, `GravadorJSON` e `GravadorBancoDeDados`.
+
+---
+
+## 10. Desenvolvimento com IA e design de software
+
+Durante a explicação sobre o exemplo do estudante, foi feita uma observação importante sobre desenvolvimento usando IA.
+
+Foi destacado que, ao programar com IA, o desenvolvedor não deve atuar apenas no nível da sintaxe.
+
+O ideal é atuar em um nível de design.
+
+Ou seja, em vez de se preocupar apenas com detalhes como abrir um `BufferedWriter` ou escolher uma biblioteca de CSV, o desenvolvedor deve orientar a IA sobre a estrutura desejada do sistema.
+
+Exemplo de orientação conceitual:
+
+> Implemente a classe Estudante separando o modelo da forma de persistência. Quero que haja quebra de acoplamento entre Estudante e as estratégias de gravação.
+
+Também foi sugerido que o aluno pode pedir à IA para aplicar um padrão específico:
+
+> Aplique o padrão Strategy para separar a entidade Estudante das diferentes formas de salvá-la.
+
+A mensagem central foi:
+
+- o desenvolvedor precisa entender o design;
+- a IA pode ajudar na implementação;
+- mas o desenvolvedor deve direcionar como o sistema será estruturado;
+- quem não entende o projeto fica dependente da IA em um nível superficial.
+
+---
+
+## 11. Padrão Composite
+
+### Problema apresentado
+
+O padrão **Composite** foi introduzido a partir de um exemplo de rede de computadores.
+
+A situação imaginada foi uma rede com diferentes equipamentos:
+
+- roteador;
+- switch;
+- servidor;
+- access point;
+- computador;
+- celular;
+- outros dispositivos.
+
+Alguns desses equipamentos podem conter ou conectar outros equipamentos.
+
+Por exemplo:
+
+- um roteador pode conectar switches, computadores, servidores e access points;
+- um switch pode conectar computadores, servidores, roteadores e access points;
+- um access point pode conectar celulares e outros dispositivos.
+
+### Métodos comuns dos equipamentos de rede
+
+Foi considerado que todos os equipamentos de rede poderiam ter métodos como:
+
+- `getIP`;
+- `getMAC`;
+- `up`.
+
+O método `getIP` retornaria o endereço IP.
+
+O método `getMAC` retornaria o endereço físico da placa de rede.
+
+O método `up` indicaria se o equipamento está ativo ou inativo na rede.
+
+### Observação sobre a modelagem de rede
+
+O exemplo da rede foi usado com objetivo didático.
+
+Em uma modelagem real de redes, alguns equipamentos podem ter múltiplos IPs ou múltiplos MACs. Um roteador, por exemplo, pode ter várias interfaces de rede. Um switch pode ou não ter IP de gerenciamento.
+
+Portanto, os métodos `getIP()` e `getMAC()` foram usados para simplificar a ideia de uma interface comum entre equipamentos.
+
+O ponto principal do exemplo é entender o problema de composição de objetos, e não construir uma modelagem completa de redes.
+
+### Endereço MAC e endereço IP
+
+Foi explicado que:
+
+- o endereço MAC é o endereço físico associado à interface de rede;
+- o endereço IP é o endereço lógico atribuído na rede.
+
+Um computador pode mudar de endereço IP ao ser conectado em outra rede, mas o endereço MAC da placa permanece o mesmo.
+
+Por exemplo:
+
+- em um laboratório, um computador pode receber um IP da rede `10.0.1.x`;
+- em outro laboratório, pode receber um IP da rede `10.0.2.x`;
+- o endereço MAC continua sendo o mesmo.
+
+O endereço MAC é projetado para ser único, mas pode ser alterado ou duplicado em algumas situações. Para o funcionamento adequado de uma rede local, o importante é que não haja conflito de MACs no mesmo domínio de rede.
+
+### Problema de acoplamento
+
+Se a classe `Roteador` precisar ter um método específico para adicionar cada tipo de equipamento, ela ficará muito acoplada.
+
+Exemplo conceitual do problema:
+
+```java
+class Roteador {
+    void addSwitch(Switch s) { }
+    void addComputador(Computador c) { }
+    void addServidor(Servidor s) { }
+    void addAccessPoint(AccessPoint ap) { }
+}
+```
+
+O problema é que, a cada novo tipo de equipamento, a classe `Roteador` precisaria ser alterada.
+
+Exemplo:
+
+- se for adicionada uma geladeira inteligente à rede;
+- se for adicionado um novo tipo de sensor;
+- se for adicionado outro equipamento qualquer.
+
+A classe `Roteador` precisaria conhecer todos esses tipos.
+
+Isso gera alto acoplamento entre classes compostas e seus componentes.
+
+### Componentes simples e componentes compostos
+
+A aula propôs classificar os objetos em duas categorias.
+
+#### Componentes simples
+
+São objetos que não contêm outros componentes.
+
+Exemplos:
+
+- computador;
+- celular;
+- servidor, dependendo da modelagem.
+
+#### Componentes compostos
+
+São objetos que podem conter ou conectar outros componentes.
+
+Exemplos:
+
+- roteador;
+- switch;
+- access point.
+
+A ideia do Composite é permitir tratar objetos simples e compostos de forma uniforme.
+
+### Interface comum: ComponenteDeRede
+
+Para resolver o problema, foi criada uma interface comum.
+
+Exemplo conceitual:
+
+```java
+interface ComponenteDeRede {
+    String getIP();
+    String getMAC();
+    boolean up();
+}
+```
+
+Todos os equipamentos da rede devem implementar essa interface direta ou indiretamente.
+
+### Classe composta
+
+Foi criada uma classe para representar componentes compostos de rede.
+
+Essa classe também implementa a interface `ComponenteDeRede`, mas contém uma lista de outros componentes.
+
+Exemplo conceitual:
+
+```java
+class ComponenteDeRedeComposto implements ComponenteDeRede {
+    private List<ComponenteDeRede> componentes = new ArrayList<>();
+
+    public void addComponente(ComponenteDeRede componente) {
+        componentes.add(componente);
+    }
+
+    public boolean up() {
+        for (ComponenteDeRede c : componentes) {
+            if (!c.up()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public String getIP() {
+        // Retorna o IP do componente composto
+    }
+
+    public String getMAC() {
+        // Retorna o MAC do componente composto
+    }
+}
+```
+
+### Implementação dos equipamentos compostos
+
+No exemplo da aula, equipamentos compostos podem herdar de `ComponenteDeRedeComposto`.
+
+Exemplo:
+
+```java
+class Roteador extends ComponenteDeRedeComposto {
+}
+
+class Switch extends ComponenteDeRedeComposto {
+}
+
+class AccessPoint extends ComponenteDeRedeComposto {
+}
+```
+
+Com isso, essas classes já passam a ter a capacidade de adicionar componentes de rede sem precisar conhecer o tipo concreto de cada componente.
+
+Essa é uma forma possível de implementar Composite, mas não é a única. Uma classe composta também poderia implementar a interface diretamente e gerenciar sua própria lista de componentes.
+
+### Implementação dos equipamentos simples
+
+Equipamentos simples implementam diretamente a interface `ComponenteDeRede`.
+
+Exemplo:
+
+```java
+class Computador implements ComponenteDeRede {
+    public String getIP() {
+        // Retorna IP
+    }
+
+    public String getMAC() {
+        // Retorna MAC
+    }
+
+    public boolean up() {
+        // Retorna se está ativo
+    }
+}
+
+class Celular implements ComponenteDeRede {
+    public String getIP() {
+        // Retorna IP
+    }
+
+    public String getMAC() {
+        // Retorna MAC
+    }
+
+    public boolean up() {
+        // Retorna se está ativo
+    }
+}
+```
+
+Os elementos simples **implementam** a interface `ComponenteDeRede`.
+
+### Uso do Composite
+
+Com essa estrutura, o roteador não precisa ter métodos específicos como:
+
+- `addSwitch`;
+- `addComputador`;
+- `addServidor`;
+- `addAccessPoint`.
+
+Ele pode ter apenas:
+
+```java
+addComponente(ComponenteDeRede componente)
+```
+
+Assim, qualquer objeto que implemente `ComponenteDeRede` pode ser adicionado.
+
+Exemplo conceitual:
+
+```java
+Roteador roteador = new Roteador();
+Switch sw = new Switch();
+Computador computador = new Computador();
+Celular celular = new Celular();
+
+roteador.addComponente(sw);
+roteador.addComponente(computador);
+sw.addComponente(celular);
+```
+
+O roteador não precisa saber se o componente adicionado é um switch, computador, servidor ou celular.
+
+Ele sabe apenas que é um `ComponenteDeRede`.
+
+### Implementação do método `up`
+
+Foi proposta uma regra simplificada para o método `up`.
+
+A ideia foi:
+
+- se todos os componentes internos estão ativos, o componente composto está ativo;
+- se qualquer componente interno estiver inativo, o componente composto retorna `false`.
+
+Exemplo conceitual:
+
+```java
+public boolean up() {
+    for (ComponenteDeRede c : componentes) {
+        if (!c.up()) {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
+Essa regra booleana é uma simplificação.
+
+Em um sistema real, talvez fosse melhor representar o estado por categorias como:
+
+- verde;
+- amarelo;
+- vermelho.
+
+Ou por um `enum`, por exemplo:
+
+```java
+enum StatusRede {
+    VERDE,
+    AMARELO,
+    VERMELHO
+}
+```
+
+Mas, para simplificar a aula, foi usada uma regra com `true` e `false`.
+
+### Definição didática de Composite
+
+O padrão **Composite** é usado quando há objetos compostos por outros objetos e se deseja tratar objetos simples e compostos por meio de uma interface comum.
+
+Na aula, a definição prática foi:
+
+> O Composite resolve o problema de acoplamento entre classes compostas e seus componentes.
+
+De forma mais precisa:
+
+> O Composite reduz o acoplamento com classes concretas. O objeto composto deixa de depender de `Computador`, `Celular`, `Switch` etc. e passa a depender apenas da interface comum.
+
+O acoplamento não desaparece completamente. Ele passa a existir com a interface comum, e não com cada classe concreta.
+
+### Principal benefício
+
+O principal benefício do Composite é que o objeto composto não precisa conhecer os tipos concretos dos objetos que contém.
+
+Ele só conhece a interface comum.
+
+Isso reduz o acoplamento e facilita a extensão do sistema.
+
+### Analogia da mesa
+
+Foi usada a analogia de uma mesa com vários objetos em cima.
+
+A mesa pode ter:
+
+- notebook;
+- celular;
+- outros objetos.
+
+Para a mesa, todos são simplesmente objetos sobre ela. Ela não precisa conhecer os detalhes de cada um.
+
+Da mesma forma, no Composite, o objeto composto trata os componentes de maneira uniforme, sem conhecer suas classes concretas.
+
+### Composite não é apenas herança
+
+No exemplo, a herança aparece para reaproveitar o comportamento da classe `ComponenteDeRedeComposto`.
+
+Mas o ponto central do Composite não é a herança.
+
+O ponto central é combinar:
+
+- polimorfismo;
+- interface comum;
+- composição de objetos;
+- uma estrutura em que objetos compostos podem conter outros componentes.
+
+A herança pode ser usada como apoio, mas o padrão está mais ligado à composição recursiva e ao tratamento uniforme de objetos simples e compostos.
+
+### Papéis do Composite
+
+O padrão Composite costuma ter três papéis principais:
+
+- **Component**: interface comum. No exemplo, `ComponenteDeRede`.
+- **Leaf**: componente simples, sem filhos. No exemplo, `Computador` e `Celular`.
+- **Composite**: componente composto, capaz de conter outros componentes. No exemplo, `Roteador`, `Switch` e `AccessPoint`.
+
+---
+
+## 12. Comparação entre Strategy e Composite
+
+### Strategy
+
+O Strategy resolve o problema de variação de comportamento.
+
+Use quando:
+
+- o mesmo método pode ter diferentes implementações;
+- existem diferentes estratégias para realizar uma ação;
+- você quer trocar o comportamento sem alterar a classe principal;
+- você quer encapsular algoritmos ou comportamentos intercambiáveis.
+
+Exemplos:
+
+- salvar em CSV, JSON ou banco;
+- calcular imposto de formas diferentes;
+- notificar por e-mail, SMS ou WhatsApp;
+- calcular salário por regras diferentes.
+
+### Composite
+
+O Composite resolve o problema de composição de objetos.
+
+Use quando:
+
+- objetos podem conter outros objetos;
+- objetos simples e compostos devem ser tratados de forma uniforme;
+- uma classe composta não deve conhecer todos os tipos concretos dos seus componentes;
+- você quer reduzir o acoplamento entre objetos compostos e classes concretas.
+
+Exemplos:
+
+- rede de computadores;
+- estruturas de pastas e arquivos;
+- menus com submenus;
+- árvores de componentes;
+- hierarquias de elementos.
+
+### Interfaces em Strategy e Composite
+
+Os dois padrões usam interface e polimorfismo, mas por motivos diferentes.
+
+No **Strategy**:
+
+- a interface representa uma família de algoritmos ou comportamentos substituíveis;
+- a classe principal escolhe ou recebe uma estratégia concreta.
+
+No **Composite**:
+
+- a interface representa um tipo comum para objetos simples e compostos;
+- o objeto composto armazena uma coleção de objetos dessa interface.
+
+### Frases de memorização
+
+Para lembrar do Strategy:
+
+> Mesmo método, diferentes estratégias.
+
+Uma formulação mais precisa:
+
+> Um comportamento variável é extraído para objetos separados, permitindo escolher ou trocar a estratégia usada.
+
+Para lembrar do Composite:
+
+> Objetos simples e compostos são tratados por meio de uma interface comum.
+
+Ou ainda:
+
+> Objeto composto sem acoplamento aos tipos concretos dos seus componentes.
+
+---
+
+## 13. Exemplo resumido de Strategy
+
+```java
+interface GravadorEstudante {
+    void salvar(Estudante estudante);
+}
+
+class GravadorCSV implements GravadorEstudante {
+    public void salvar(Estudante estudante) {
+        // Salvar em CSV
+    }
+}
+
+class GravadorJSON implements GravadorEstudante {
+    public void salvar(Estudante estudante) {
+        // Salvar em JSON
+    }
+}
+
+class Estudante {
+    private String nome;
+    private String matricula;
+    private GravadorEstudante gravador;
 
     public void setGravador(GravadorEstudante gravador) {
         this.gravador = gravador;
@@ -152,527 +1264,25 @@ class Estudante {
 }
 ```
 
-#### Uso
+Uso:
 
 ```java
-class Exemplo {
-    public static void main(String[] args) {
-        Estudante estudante = new Estudante("Joao", "20260001");
+Estudante estudante = new Estudante();
 
-        estudante.setGravador(new GravadorCSV());
-        estudante.salvar();
+estudante.setGravador(new GravadorCSV());
+estudante.salvar();
 
-        estudante.setGravador(new GravadorJSON());
-        estudante.salvar();
-
-        estudante.setGravador(new GravadorBancoDeDados());
-        estudante.salvar();
-    }
-}
+estudante.setGravador(new GravadorJSON());
+estudante.salvar();
 ```
 
-Nesse exemplo, a classe `Estudante` não precisa saber como salvar em CSV, JSON ou banco de dados. Ela apenas delega essa responsabilidade para uma estratégia.
+Observação:
+
+> Esse exemplo é pedagógico. Em uma arquitetura em camadas, a persistência poderia estar em um DAO, Repository ou Service. O objetivo aqui é mostrar a troca de estratégias.
 
 ---
 
-### Observação importante sobre esse exemplo
-
-O exemplo `Estudante.salvar()` é pedagógico.
-
-Em uma arquitetura em camadas, como nos projetos da disciplina, talvez fosse mais adequado que a persistência estivesse em outra classe, como:
-
-- `EstudanteDAO`;
-- `EstudanteRepository`;
-- `EstudanteService`;
-- `ExportadorEstudante`;
-- `GravadorEstudante`.
-
-O objetivo do exemplo não é dizer que toda entidade deve salvar a si mesma.
-
-O objetivo é mostrar que uma operação variável pode ser separada em estratégias diferentes.
-
----
-
-### Exemplo 2 — Cálculo de frete
-
-Imagine um sistema de vendas que precisa calcular o frete de um pedido.
-
-O frete pode variar conforme a forma de entrega:
-
-- entrega comum;
-- entrega expressa;
-- retirada na loja;
-- entrega por transportadora.
-
-Uma solução ruim seria colocar todos os cálculos em um único método com vários `if`.
-
-Com Strategy, cada tipo de frete vira uma estratégia.
-
-#### Interface
-
-```java
-interface CalculadoraFrete {
-    double calcular(double valorPedido);
-}
-```
-
-#### Estratégia de frete comum
-
-```java
-class FreteComum implements CalculadoraFrete {
-    public double calcular(double valorPedido) {
-        return 15.0;
-    }
-}
-```
-
-#### Estratégia de frete expresso
-
-```java
-class FreteExpresso implements CalculadoraFrete {
-    public double calcular(double valorPedido) {
-        return 30.0;
-    }
-}
-```
-
-#### Estratégia de retirada na loja
-
-```java
-class RetiradaNaLoja implements CalculadoraFrete {
-    public double calcular(double valorPedido) {
-        return 0.0;
-    }
-}
-```
-
-#### Classe Pedido
-
-```java
-class Pedido {
-    private double valor;
-    private CalculadoraFrete calculadoraFrete;
-
-    public Pedido(double valor) {
-        this.valor = valor;
-    }
-
-    public void setCalculadoraFrete(CalculadoraFrete calculadoraFrete) {
-        this.calculadoraFrete = calculadoraFrete;
-    }
-
-    public double calcularValorTotal() {
-        if (calculadoraFrete == null) {
-            throw new IllegalStateException("Calculadora de frete não configurada");
-        }
-
-        return valor + calculadoraFrete.calcular(valor);
-    }
-}
-```
-
-#### Uso
-
-```java
-Pedido pedido = new Pedido(100.0);
-
-pedido.setCalculadoraFrete(new FreteComum());
-System.out.println(pedido.calcularValorTotal());
-
-pedido.setCalculadoraFrete(new FreteExpresso());
-System.out.println(pedido.calcularValorTotal());
-
-pedido.setCalculadoraFrete(new RetiradaNaLoja());
-System.out.println(pedido.calcularValorTotal());
-```
-
-Esse exemplo mostra bem o Strategy porque o método “calcular frete” tem diferentes estratégias.
-
----
-
-### Exemplo 3 — Notificações
-
-Um sistema pode precisar notificar usuários de várias formas:
-
-- e-mail;
-- SMS;
-- WhatsApp;
-- notificação interna no sistema.
-
-Cada canal de notificação pode ser uma estratégia.
-
-#### Interface
-
-```java
-interface Notificador {
-    void notificar(String destinatario, String mensagem);
-}
-```
-
-#### Estratégia de e-mail
-
-```java
-class NotificadorEmail implements Notificador {
-    public void notificar(String destinatario, String mensagem) {
-        System.out.println("Enviando e-mail para " + destinatario);
-    }
-}
-```
-
-#### Estratégia de SMS
-
-```java
-class NotificadorSMS implements Notificador {
-    public void notificar(String destinatario, String mensagem) {
-        System.out.println("Enviando SMS para " + destinatario);
-    }
-}
-```
-
-#### Estratégia de WhatsApp
-
-```java
-class NotificadorWhatsApp implements Notificador {
-    public void notificar(String destinatario, String mensagem) {
-        System.out.println("Enviando WhatsApp para " + destinatario);
-    }
-}
-```
-
-#### Classe que usa a estratégia
-
-```java
-class ServicoDeAviso {
-    private Notificador notificador;
-
-    public ServicoDeAviso(Notificador notificador) {
-        this.notificador = notificador;
-    }
-
-    public void enviarAviso(String destinatario, String mensagem) {
-        notificador.notificar(destinatario, mensagem);
-    }
-}
-```
-
-#### Uso
-
-```java
-ServicoDeAviso avisoPorEmail = new ServicoDeAviso(new NotificadorEmail());
-avisoPorEmail.enviarAviso("aluno@email.com", "Sua atividade foi corrigida.");
-
-ServicoDeAviso avisoPorSMS = new ServicoDeAviso(new NotificadorSMS());
-avisoPorSMS.enviarAviso("83999999999", "Sua atividade foi corrigida.");
-```
-
-O serviço de aviso não precisa conhecer os detalhes de envio por e-mail, SMS ou WhatsApp. Ele depende apenas da interface `Notificador`.
-
----
-
-### Exemplo 4 — Cálculo de salário
-
-Um sistema de folha de pagamento pode calcular salários de formas diferentes:
-
-- funcionário mensalista;
-- vendedor com comissão;
-- funcionário horista;
-- funcionário com adicional de insalubridade.
-
-Cada regra pode ser uma estratégia.
-
-#### Interface
-
-```java
-interface CalculadoraSalario {
-    double calcular(Funcionario funcionario);
-}
-```
-
-#### Funcionário
-
-```java
-class Funcionario {
-    private String nome;
-    private double salarioBase;
-    private double vendas;
-    private int horasTrabalhadas;
-
-    public Funcionario(String nome, double salarioBase) {
-        this.nome = nome;
-        this.salarioBase = salarioBase;
-    }
-
-    public double getSalarioBase() {
-        return salarioBase;
-    }
-
-    public double getVendas() {
-        return vendas;
-    }
-
-    public int getHorasTrabalhadas() {
-        return horasTrabalhadas;
-    }
-}
-```
-
-#### Estratégia para mensalista
-
-```java
-class SalarioMensalista implements CalculadoraSalario {
-    public double calcular(Funcionario funcionario) {
-        return funcionario.getSalarioBase();
-    }
-}
-```
-
-#### Estratégia para vendedor
-
-```java
-class SalarioVendedor implements CalculadoraSalario {
-    public double calcular(Funcionario funcionario) {
-        return funcionario.getSalarioBase() + funcionario.getVendas() * 0.10;
-    }
-}
-```
-
-#### Estratégia com adicional
-
-```java
-class SalarioComInsalubridade implements CalculadoraSalario {
-    public double calcular(Funcionario funcionario) {
-        return funcionario.getSalarioBase() * 1.20;
-    }
-}
-```
-
-Nesse caso, o cálculo do salário varia. O Strategy permite isolar cada regra em uma classe própria.
-
----
-
-### Exemplo 5 — Ordenação de dados
-
-Um sistema pode exibir uma lista de produtos com diferentes critérios de ordenação:
-
-- menor preço;
-- maior preço;
-- nome em ordem alfabética;
-- produtos mais recentes.
-
-Cada forma de ordenação pode ser uma estratégia.
-
-#### Interface
-
-```java
-interface OrdenadorProduto {
-    void ordenar(List<Produto> produtos);
-}
-```
-
-#### Estratégia por menor preço
-
-```java
-class OrdenarPorMenorPreco implements OrdenadorProduto {
-    public void ordenar(List<Produto> produtos) {
-        produtos.sort((p1, p2) -> Double.compare(p1.getPreco(), p2.getPreco()));
-    }
-}
-```
-
-#### Estratégia por nome
-
-```java
-class OrdenarPorNome implements OrdenadorProduto {
-    public void ordenar(List<Produto> produtos) {
-        produtos.sort((p1, p2) -> p1.getNome().compareTo(p2.getNome()));
-    }
-}
-```
-
-Esse exemplo mostra que Strategy não serve apenas para persistência. Ele serve para qualquer comportamento que possa variar.
-
----
-
-### Exemplo 6 — Autorização em um sistema
-
-Nos projetos da disciplina, há requisito de autenticação e autorização.
-
-Um exemplo possível de Strategy seria a verificação de permissão de usuários.
-
-Imagine que diferentes perfis tenham regras diferentes:
-
-- aluno;
-- professor;
-- administrador.
-
-Cada regra de autorização pode ser uma estratégia.
-
-#### Interface
-
-```java
-interface RegraAutorizacao {
-    boolean podeAcessar(Usuario usuario, String recurso);
-}
-```
-
-#### Estratégia para aluno
-
-```java
-class AutorizacaoAluno implements RegraAutorizacao {
-    public boolean podeAcessar(Usuario usuario, String recurso) {
-        return recurso.equals("visualizar_proprios_dados");
-    }
-}
-```
-
-#### Estratégia para professor
-
-```java
-class AutorizacaoProfessor implements RegraAutorizacao {
-    public boolean podeAcessar(Usuario usuario, String recurso) {
-        return recurso.equals("visualizar_turma") || recurso.equals("lancar_nota");
-    }
-}
-```
-
-#### Estratégia para administrador
-
-```java
-class AutorizacaoAdministrador implements RegraAutorizacao {
-    public boolean podeAcessar(Usuario usuario, String recurso) {
-        return true;
-    }
-}
-```
-
-Aqui, o comportamento variável é a regra de autorização.
-
----
-
-### Como identificar oportunidade de usar Strategy
-
-Uma boa pergunta para identificar Strategy é:
-
-> Existe uma ação no sistema que pode ser feita de várias formas diferentes?
-
-Outra pergunta útil:
-
-> Estou usando vários `if`, `else if` ou `switch` para escolher uma forma de executar um comportamento?
-
-Sinais de que Strategy pode ser útil:
-
-- muitos condicionais escolhendo algoritmo;
-- comportamento que muda conforme tipo, perfil ou configuração;
-- necessidade de trocar uma regra em tempo de execução;
-- possibilidade de adicionar novas regras no futuro;
-- classe principal ficando grande demais por conter várias variações de uma mesma ação.
-
----
-
-### Quando Strategy pode ser exagero
-
-Strategy pode ser exagero quando:
-
-- só existe uma implementação;
-- não há previsão real de variação;
-- a lógica é muito pequena e não tende a crescer;
-- a criação de várias classes deixa o código mais difícil de entender;
-- o padrão é usado apenas para “parecer avançado”.
-
-No projeto da disciplina, a aplicação pode ser pedagógica. Mas, em projetos reais, o uso deve ser justificado por uma necessidade de manutenção, extensão ou organização.
-
----
-
-## Seção ampliada — Composite
-
-## Padrão Composite
-
-### Ideia central do Composite
-
-O padrão **Composite** é usado quando precisamos representar objetos que podem ser formados por outros objetos.
-
-A palavra “composite” remete a algo **composto**, isto é, algo formado por partes.
-
-A ideia central é:
-
-> Tratar objetos simples e objetos compostos de maneira uniforme por meio de uma interface comum.
-
-Em outras palavras, o código cliente não precisa saber se está lidando com um objeto individual ou com um conjunto de objetos.
-
----
-
-### Problema que o Composite resolve
-
-Imagine uma estrutura em que um objeto pode conter outros objetos.
-
-Exemplos:
-
-- uma pasta contém arquivos e outras pastas;
-- um menu contém itens e submenus;
-- uma rede contém roteadores, switches, computadores e outros dispositivos;
-- uma organização contém setores, equipes e pessoas;
-- uma tela contém painéis, botões, campos e outros componentes.
-
-Sem Composite, uma classe composta pode acabar conhecendo todos os tipos concretos que ela pode conter.
-
-Exemplo ruim:
-
-```java
-class Pasta {
-    void adicionarArquivo(Arquivo arquivo) { }
-    void adicionarImagem(Imagem imagem) { }
-    void adicionarVideo(Video video) { }
-    void adicionarOutraPasta(Pasta pasta) { }
-}
-```
-
-Esse projeto tem um problema:
-
-- a classe `Pasta` conhece vários tipos concretos;
-- a cada novo tipo de item, `Pasta` precisa mudar;
-- o código fica muito acoplado;
-- fica difícil tratar arquivos e pastas de forma uniforme.
-
-O Composite resolve isso criando uma interface comum para todos os elementos.
-
----
-
-### Estrutura básica do Composite
-
-O Composite normalmente envolve três papéis:
-
-- **Component**: interface comum para objetos simples e compostos.
-- **Leaf**: objeto simples, que não possui filhos.
-- **Composite**: objeto composto, que possui uma coleção de componentes.
-
-No exemplo de rede da aula:
-
-- Component: `ComponenteDeRede`;
-- Leaf: `Computador`, `Celular`;
-- Composite: `Roteador`, `Switch`, `AccessPoint`.
-
----
-
-### Exemplo 1 — Rede de computadores
-
-No exemplo da aula, uma rede possui vários componentes:
-
-- roteador;
-- switch;
-- access point;
-- computador;
-- celular;
-- servidor.
-
-Alguns componentes podem conter outros:
-
-- roteador pode conter switch, computador, access point;
-- switch pode conter computador, servidor, access point;
-- access point pode conter celular.
-
-A solução com Composite cria uma interface comum.
-
-#### Interface Component
+## 14. Exemplo resumido de Composite
 
 ```java
 interface ComponenteDeRede {
@@ -680,11 +1290,7 @@ interface ComponenteDeRede {
     String getMAC();
     boolean up();
 }
-```
 
-#### Classe Composite
-
-```java
 class ComponenteDeRedeComposto implements ComponenteDeRede {
     private List<ComponenteDeRede> componentes = new ArrayList<>();
 
@@ -692,33 +1298,26 @@ class ComponenteDeRedeComposto implements ComponenteDeRede {
         componentes.add(componente);
     }
 
-    public void removerComponente(ComponenteDeRede componente) {
-        componentes.remove(componente);
-    }
-
     public boolean up() {
-        for (ComponenteDeRede componente : componentes) {
-            if (!componente.up()) {
+        for (ComponenteDeRede c : componentes) {
+            if (!c.up()) {
                 return false;
             }
         }
-
         return true;
     }
 
     public String getIP() {
+        // Retorna IP do componente composto
         return "";
     }
 
     public String getMAC() {
+        // Retorna MAC do componente composto
         return "";
     }
 }
-```
 
-#### Objetos compostos
-
-```java
 class Roteador extends ComponenteDeRedeComposto {
 }
 
@@ -727,18 +1326,14 @@ class Switch extends ComponenteDeRedeComposto {
 
 class AccessPoint extends ComponenteDeRedeComposto {
 }
-```
 
-#### Objetos simples
-
-```java
 class Computador implements ComponenteDeRede {
     public String getIP() {
-        return "10.0.1.10";
+        return "";
     }
 
     public String getMAC() {
-        return "AA-BB-CC-DD-EE-01";
+        return "";
     }
 
     public boolean up() {
@@ -748,11 +1343,11 @@ class Computador implements ComponenteDeRede {
 
 class Celular implements ComponenteDeRede {
     public String getIP() {
-        return "10.0.1.20";
+        return "";
     }
 
     public String getMAC() {
-        return "AA-BB-CC-DD-EE-02";
+        return "";
     }
 
     public boolean up() {
@@ -761,821 +1356,195 @@ class Celular implements ComponenteDeRede {
 }
 ```
 
-#### Uso
+Uso:
 
 ```java
 Roteador roteador = new Roteador();
 Switch sw = new Switch();
-AccessPoint ap = new AccessPoint();
-
 Computador computador = new Computador();
 Celular celular = new Celular();
 
 roteador.addComponente(sw);
-roteador.addComponente(ap);
-sw.addComponente(computador);
-ap.addComponente(celular);
+roteador.addComponente(computador);
+sw.addComponente(celular);
 
-System.out.println(roteador.up());
+boolean redeAtiva = roteador.up();
 ```
 
-O roteador não precisa saber se recebeu um switch, computador, celular ou access point.
+Observação:
 
-Ele sabe apenas que recebeu um `ComponenteDeRede`.
+> Esse exemplo simplifica a modelagem de redes. Em sistemas reais, equipamentos podem ter múltiplas interfaces, múltiplos IPs e regras de disponibilidade mais complexas.
 
 ---
 
-### Exemplo 2 — Pastas e arquivos
+## 15. Cuidados ao aplicar padrões de projeto
 
-Esse é um dos exemplos mais comuns de Composite.
+### Não aplicar padrão sem necessidade
 
-Uma pasta pode conter:
+Foi reforçado que aplicar padrão sem necessidade pode tornar o sistema mais complexo do que deveria.
 
-- arquivos;
-- outras pastas.
+Antes de aplicar um padrão, pergunte:
 
-Um arquivo é um componente simples.
+- Existe uma variação real de comportamento?
+- Existe necessidade de extensão?
+- Existe acoplamento excessivo?
+- O sistema ficará mais fácil de manter?
+- A complexidade adicional vale a pena?
 
-Uma pasta é um componente composto.
+### Aprender justifica experimentar
 
-#### Interface Component
+No contexto da disciplina, experimentar padrões no projeto pode ser útil mesmo que a necessidade não seja perfeita.
 
-```java
-interface ItemSistemaArquivos {
-    String getNome();
-    int getTamanho();
-    void exibir();
-}
-```
+O objetivo é aprender.
 
-#### Leaf: Arquivo
+Mas é importante sair da disciplina entendendo que, na vida profissional, padrões devem ser aplicados por necessidade de projeto.
 
-```java
-class Arquivo implements ItemSistemaArquivos {
-    private String nome;
-    private int tamanho;
+### Evitar “macarronada de padrões”
 
-    public Arquivo(String nome, int tamanho) {
-        this.nome = nome;
-        this.tamanho = tamanho;
-    }
+Foi usado o exemplo de um sistema com muitos padrões aplicados sem necessidade, o que deixou o código difícil de entender e modificar.
 
-    public String getNome() {
-        return nome;
-    }
+A lição foi:
 
-    public int getTamanho() {
-        return tamanho;
-    }
-
-    public void exibir() {
-        System.out.println("Arquivo: " + nome);
-    }
-}
-```
-
-#### Composite: Pasta
-
-```java
-class Pasta implements ItemSistemaArquivos {
-    private String nome;
-    private List<ItemSistemaArquivos> itens = new ArrayList<>();
-
-    public Pasta(String nome) {
-        this.nome = nome;
-    }
-
-    public void adicionar(ItemSistemaArquivos item) {
-        itens.add(item);
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public int getTamanho() {
-        int total = 0;
-
-        for (ItemSistemaArquivos item : itens) {
-            total += item.getTamanho();
-        }
-
-        return total;
-    }
-
-    public void exibir() {
-        System.out.println("Pasta: " + nome);
-
-        for (ItemSistemaArquivos item : itens) {
-            item.exibir();
-        }
-    }
-}
-```
-
-#### Uso
-
-```java
-Pasta raiz = new Pasta("raiz");
-Pasta documentos = new Pasta("documentos");
-
-Arquivo a1 = new Arquivo("aula.txt", 10);
-Arquivo a2 = new Arquivo("projeto.pdf", 50);
-
-documentos.adicionar(a1);
-documentos.adicionar(a2);
-
-raiz.adicionar(documentos);
-raiz.adicionar(new Arquivo("README.md", 5));
-
-System.out.println(raiz.getTamanho());
-raiz.exibir();
-```
-
-Nesse exemplo:
-
-- `Arquivo` é simples;
-- `Pasta` é composta;
-- tanto `Arquivo` quanto `Pasta` são tratados como `ItemSistemaArquivos`.
-
-A chamada `getTamanho()` funciona tanto para arquivo quanto para pasta.
-
-No arquivo, retorna o tamanho do arquivo.
-
-Na pasta, soma o tamanho de todos os itens internos.
+- padrões ajudam quando resolvem um problema real;
+- padrões atrapalham quando são usados apenas para mostrar conhecimento;
+- simplicidade também é uma qualidade de projeto.
 
 ---
 
-### Exemplo 3 — Menu com submenus
+## 16. Orientações do Professor
 
-Um sistema web pode ter menus e submenus.
-
-Um item de menu simples executa uma ação.
-
-Um submenu contém outros itens.
-
-#### Interface
-
-```java
-interface ItemMenu {
-    void exibir();
-}
-```
-
-#### Leaf: item simples
-
-```java
-class LinkMenu implements ItemMenu {
-    private String titulo;
-    private String url;
-
-    public LinkMenu(String titulo, String url) {
-        this.titulo = titulo;
-        this.url = url;
-    }
-
-    public void exibir() {
-        System.out.println(titulo + " -> " + url);
-    }
-}
-```
-
-#### Composite: submenu
-
-```java
-class Submenu implements ItemMenu {
-    private String titulo;
-    private List<ItemMenu> itens = new ArrayList<>();
-
-    public Submenu(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public void adicionar(ItemMenu item) {
-        itens.add(item);
-    }
-
-    public void exibir() {
-        System.out.println("Submenu: " + titulo);
-
-        for (ItemMenu item : itens) {
-            item.exibir();
-        }
-    }
-}
-```
-
-#### Uso
-
-```java
-Submenu menuPrincipal = new Submenu("Principal");
-
-menuPrincipal.adicionar(new LinkMenu("Início", "/"));
-menuPrincipal.adicionar(new LinkMenu("Login", "/login"));
-
-Submenu menuAdmin = new Submenu("Administração");
-menuAdmin.adicionar(new LinkMenu("Usuários", "/usuarios"));
-menuAdmin.adicionar(new LinkMenu("Relatórios", "/relatorios"));
-
-menuPrincipal.adicionar(menuAdmin);
-
-menuPrincipal.exibir();
-```
-
-Nesse caso, o menu principal trata links simples e submenus da mesma forma.
+- Todos os projetos devem usar Docker.
+- O front-end deve usar Thymeleaf com Bootstrap.
+- O back-end deve usar Javalin.
+- O banco de dados deve ser PostgreSQL.
+- O projeto deve estar em produção.
+- O projeto deve ter uso de log.
+- O projeto deve ter testes automatizados.
+- O projeto deve ter autenticação.
+- O projeto deve ter autorização.
+- O projeto deve ter organização modular do código.
+- Será executado um script para avaliar os projetos.
+- O feedback do script será gerado em um arquivo Markdown na raiz de cada projeto.
+- Caso o feedback automático esteja errado, o aluno deve avisar o professor para análise específica.
+- A avaliação só será fechada quando professor e grupo estiverem de acordo.
+- Os alunos devem estudar o padrão Strategy.
+- Os alunos devem implementar alguma coisa usando Strategy.
+- Os alunos devem estudar o padrão Composite.
+- Os alunos devem implementar alguma coisa usando Composite.
+- As atividades de Strategy e Composite serão disponibilizadas.
+- As atividades não serão obrigatórias para nota.
+- Mesmo não valendo ponto na disciplina, as atividades foram recomendadas como importantes para a aprendizagem.
+- Os alunos podem usar IA para identificar oportunidades de aplicar Strategy e Composite no projeto.
+- Ao usar IA, os alunos devem pedir sugestões no plural, buscando diferentes possibilidades de aplicação.
+- Se a IA estiver forçando demais a aplicação de um padrão, os alunos devem procurar o professor.
+- Pode ser que não exista uma aplicação natural de algum padrão em determinado projeto.
+- Caso não exista aplicação natural, é possível discutir com o professor alguma alternativa pedagógica.
+- Não se espera que todos os padrões estudados sejam implementados no projeto.
+- Os alunos devem implementar o máximo que puderem para aprender, sem transformar o projeto em algo excessivamente complexo.
+- Quem tiver problema no projeto, especialmente relacionado ao servidor, deve mandar mensagem pelo Discord.
+- Os alunos não devem esperar apenas pela aula para resolver problemas do projeto.
+- Os alunos devem aproveitar o dia para quitar pendências com o servidor antes da execução do script de avaliação.
 
 ---
 
-### Exemplo 4 — Organização com setores, equipes e pessoas
+## 17. Conceitos para se Aprofundar
 
-Uma organização pode ter:
-
-- empresa;
-- setores;
-- equipes;
-- pessoas.
-
-Uma pessoa é um componente simples.
-
-Um setor ou equipe pode ser composto por várias pessoas ou outras equipes.
-
-#### Interface
-
-```java
-interface UnidadeOrganizacional {
-    String getNome();
-    int getQuantidadePessoas();
-}
-```
-
-#### Leaf: pessoa
-
-```java
-class Pessoa implements UnidadeOrganizacional {
-    private String nome;
-
-    public Pessoa(String nome) {
-        this.nome = nome;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public int getQuantidadePessoas() {
-        return 1;
-    }
-}
-```
-
-#### Composite: setor
-
-```java
-class Setor implements UnidadeOrganizacional {
-    private String nome;
-    private List<UnidadeOrganizacional> unidades = new ArrayList<>();
-
-    public Setor(String nome) {
-        this.nome = nome;
-    }
-
-    public void adicionar(UnidadeOrganizacional unidade) {
-        unidades.add(unidade);
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public int getQuantidadePessoas() {
-        int total = 0;
-
-        for (UnidadeOrganizacional unidade : unidades) {
-            total += unidade.getQuantidadePessoas();
-        }
-
-        return total;
-    }
-}
-```
-
-#### Uso
-
-```java
-Setor empresa = new Setor("Empresa");
-Setor desenvolvimento = new Setor("Desenvolvimento");
-Setor suporte = new Setor("Suporte");
-
-desenvolvimento.adicionar(new Pessoa("Pessoa 1"));
-desenvolvimento.adicionar(new Pessoa("Pessoa 2"));
-
-suporte.adicionar(new Pessoa("Pessoa 3"));
-
-empresa.adicionar(desenvolvimento);
-empresa.adicionar(suporte);
-
-System.out.println(empresa.getQuantidadePessoas());
-```
-
-Esse exemplo mostra a ideia de árvore:
-
-- empresa contém setores;
-- setores contêm pessoas;
-- setores também poderiam conter equipes;
-- tudo é tratado como `UnidadeOrganizacional`.
+- Padrões de projeto.
+- Catálogos de padrões de projeto.
+- Design orientado a objetos.
+- Manutenibilidade.
+- Acoplamento.
+- Baixo acoplamento.
+- Coesão.
+- Separação de responsabilidades.
+- Overhead cognitivo.
+- MVC.
+- Controller.
+- Service.
+- Model.
+- DAO.
+- Repository.
+- Interface.
+- Polimorfismo.
+- Herança.
+- Composição.
+- Classe.
+- Objeto.
+- Instância.
+- Referência de memória.
+- `null`.
+- `this`.
+- `ArrayList`.
+- Diferença entre objeto e referência.
+- Diferença entre classe e instância.
+- Strategy.
+- Contexto no Strategy.
+- Strategy como interface de comportamento.
+- ConcreteStrategy.
+- Composite.
+- Component.
+- Leaf.
+- Composite como componente composto.
+- Componentes simples.
+- Componentes compostos.
+- Interface comum.
+- Extensibilidade.
+- Java IO.
+- `BufferedWriter`.
+- `FileWriter`.
+- CSV.
+- JSON.
+- Endereço IP.
+- Endereço MAC.
+- Estado de disponibilidade de componentes.
+- Desenvolvimento de software com apoio de IA.
+- Uso de IA em nível de design, não apenas em nível de sintaxe.
 
 ---
 
-### Exemplo 5 — Interface gráfica
+## 18. Questões para Revisão
+
+1. O que são padrões de projeto?
+2. Qual é o principal objetivo de usar um padrão de projeto?
+3. Por que padrões de projeto podem aumentar a complexidade do sistema?
+4. O que significa overhead cognitivo?
+5. Por que não devemos aplicar padrões de projeto sem necessidade?
+6. Qual é a diferença entre uso pedagógico e uso profissional de padrões de projeto?
+7. O que significa dizer que uma classe é um modelo?
+8. Por que uma classe não deve conter atributos que não estão ligados a requisitos do sistema?
+9. O que acontece na memória quando usamos `new` em Java?
+10. Uma variável de objeto guarda o objeto ou uma referência para o objeto?
+11. O que acontece quando duas variáveis apontam para o mesmo objeto?
+12. Se uma variável for definida como `null`, o objeto necessariamente deixa de existir?
+13. Quando um objeto é adicionado a uma lista, a lista cria uma cópia do objeto?
+14. Por que é importante entender referências para evitar problemas com `NullPointerException`?
+15. O que significa a frase “programamos na classe, mas executamos na instância”?
+16. O que representa o `this` em Java?
+17. Qual problema inicial foi usado para explicar o padrão Strategy?
+18. Por que não é ideal colocar o código de gravação em CSV diretamente dentro da classe `Estudante`?
+19. Por que o exemplo `Estudante.salvar()` deve ser entendido como pedagógico?
+20. Em uma arquitetura em camadas, que tipos de classe poderiam ficar responsáveis pela persistência?
+21. Como uma interface ajuda a reduzir o acoplamento no Strategy?
+22. No exemplo da aula, quais foram as estratégias de gravação mencionadas?
+23. Qual é a definição didática do padrão Strategy?
+24. Por que dizer que Strategy é apenas “quebra de acoplamento” é incompleto?
+25. O que pode acontecer se a estratégia não for configurada antes da chamada do método?
+26. Em que situações o Strategy deve ser usado?
+27. Cite um exemplo de uso de Strategy diferente do exemplo de gravação de estudante.
+28. Quais são os papéis principais no padrão Strategy?
+29. Qual problema inicial foi usado para explicar o padrão Composite?
+30. Por que uma classe `Roteador` com métodos como `addSwitch`, `addComputador` e `addServidor` fica muito acoplada?
+31. Qual é a diferença entre componente simples e componente composto?
+32. Qual interface foi proposta no exemplo de rede de computadores?
+33. Por que `getIP()` e `getMAC()` são simplificações no exemplo da rede?
+34. Por que o objeto composto deve armazenar uma lista de componentes pela interface comum?
+35. Como o Composite reduz o acoplamento entre objetos compostos e seus componentes?
+36. O acoplamento desaparece completamente no Composite?
+37. Qual é a diferença entre depender de classes concretas e depender de uma interface?
+38. Qual é a diferença principal entre Strategy e Composite?
+39. Qual é o papel da interface no Strategy?
+40. Qual é o papel da interface no Composite?
+41. Quais são os papéis principais no padrão Composite?
+42. Como a IA pode ajudar na aplicação de padrões de projeto?
+43. Por que o aluno precisa entender design de software mesmo usando IA para programar?
 
-Em interfaces gráficas, uma tela pode conter vários componentes:
-
-- painel;
-- botão;
-- campo de texto;
-- tabela;
-- outro painel.
-
-Um botão é simples.
-
-Um painel é composto, porque pode conter outros componentes.
-
-#### Interface
-
-```java
-interface ComponenteVisual {
-    void desenhar();
-}
-```
-
-#### Leaf: botão
-
-```java
-class Botao implements ComponenteVisual {
-    private String texto;
-
-    public Botao(String texto) {
-        this.texto = texto;
-    }
-
-    public void desenhar() {
-        System.out.println("Desenhando botão: " + texto);
-    }
-}
-```
-
-#### Leaf: campo de texto
-
-```java
-class CampoTexto implements ComponenteVisual {
-    private String nome;
-
-    public CampoTexto(String nome) {
-        this.nome = nome;
-    }
-
-    public void desenhar() {
-        System.out.println("Desenhando campo de texto: " + nome);
-    }
-}
-```
-
-#### Composite: painel
-
-```java
-class Painel implements ComponenteVisual {
-    private List<ComponenteVisual> componentes = new ArrayList<>();
-
-    public void adicionar(ComponenteVisual componente) {
-        componentes.add(componente);
-    }
-
-    public void desenhar() {
-        System.out.println("Desenhando painel");
-
-        for (ComponenteVisual componente : componentes) {
-            componente.desenhar();
-        }
-    }
-}
-```
-
-#### Uso
-
-```java
-Painel tela = new Painel();
-
-tela.adicionar(new CampoTexto("email"));
-tela.adicionar(new CampoTexto("senha"));
-tela.adicionar(new Botao("Entrar"));
-
-Painel painelInterno = new Painel();
-painelInterno.adicionar(new Botao("Ajuda"));
-painelInterno.adicionar(new Botao("Cancelar"));
-
-tela.adicionar(painelInterno);
-
-tela.desenhar();
-```
-
-Esse exemplo mostra que o Composite é muito útil para estruturas hierárquicas.
-
-Uma tela pode conter painéis, que contêm outros componentes, que podem conter outros painéis, e assim por diante.
-
----
-
-### Exemplo 6 — Tarefas e subtarefas
-
-Em um sistema de gerenciamento de projetos, uma tarefa pode ser simples ou composta por subtarefas.
-
-Exemplos:
-
-- “Implementar login” pode ter subtarefas:
-  - criar tela de login;
-  - validar usuário;
-  - criar sessão;
-  - testar autenticação.
-
-Uma subtarefa também poderia ter outras subtarefas.
-
-#### Interface
-
-```java
-interface ItemTrabalho {
-    String getDescricao();
-    int getHorasEstimadas();
-}
-```
-
-#### Leaf: tarefa simples
-
-```java
-class TarefaSimples implements ItemTrabalho {
-    private String descricao;
-    private int horasEstimadas;
-
-    public TarefaSimples(String descricao, int horasEstimadas) {
-        this.descricao = descricao;
-        this.horasEstimadas = horasEstimadas;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public int getHorasEstimadas() {
-        return horasEstimadas;
-    }
-}
-```
-
-#### Composite: tarefa composta
-
-```java
-class TarefaComposta implements ItemTrabalho {
-    private String descricao;
-    private List<ItemTrabalho> itens = new ArrayList<>();
-
-    public TarefaComposta(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public void adicionar(ItemTrabalho item) {
-        itens.add(item);
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public int getHorasEstimadas() {
-        int total = 0;
-
-        for (ItemTrabalho item : itens) {
-            total += item.getHorasEstimadas();
-        }
-
-        return total;
-    }
-}
-```
-
-#### Uso
-
-```java
-TarefaComposta login = new TarefaComposta("Implementar login");
-
-login.adicionar(new TarefaSimples("Criar tela de login", 2));
-login.adicionar(new TarefaSimples("Validar usuário", 3));
-login.adicionar(new TarefaSimples("Criar sessão", 2));
-login.adicionar(new TarefaSimples("Testar autenticação", 2));
-
-System.out.println(login.getHorasEstimadas());
-```
-
-Nesse exemplo, a tarefa composta calcula suas horas somando as horas das subtarefas.
-
----
-
-### Como identificar oportunidade de usar Composite
-
-Uma boa pergunta para identificar Composite é:
-
-> Tenho objetos que podem conter outros objetos do mesmo tipo abstrato?
-
-Outra pergunta:
-
-> Preciso tratar um item individual e um grupo de itens da mesma forma?
-
-Sinais de que Composite pode ser útil:
-
-- estrutura em árvore;
-- objetos contendo outros objetos;
-- necessidade de somar, listar, exibir ou validar recursivamente;
-- muitos métodos específicos para adicionar tipos diferentes;
-- classes compostas acopladas a várias classes concretas;
-- necessidade de tratar parte e todo de maneira uniforme.
-
----
-
-### Composite e estruturas em árvore
-
-O Composite é muito comum em estruturas parecidas com árvores.
-
-Exemplo de árvore de arquivos:
-
-- Pasta raiz
-  - Arquivo A
-  - Pasta documentos
-    - Arquivo B
-    - Arquivo C
-  - Pasta imagens
-    - Arquivo D
-
-A pasta raiz contém arquivos e outras pastas.
-
-Cada pasta pode conter arquivos e outras pastas.
-
-Isso forma uma estrutura recursiva.
-
-O Composite permite representar essa estrutura porque o composto armazena uma lista de componentes da própria interface comum.
-
-Exemplo:
-
-```java
-private List<ItemSistemaArquivos> itens;
-```
-
-A lista pode conter tanto arquivos quanto pastas, porque ambos implementam `ItemSistemaArquivos`.
-
----
-
-### Cuidado: nem toda relação “tem um” precisa de Composite
-
-Composite não deve ser usado em qualquer relação de composição.
-
-Por exemplo:
-
-```java
-class Pedido {
-    private Cliente cliente;
-    private Endereco enderecoEntrega;
-}
-```
-
-Esse é um caso em que `Pedido` tem um `Cliente` e um `Endereco`, mas isso não significa que devemos usar Composite.
-
-Composite é mais adequado quando:
-
-- os elementos têm uma interface comum;
-- objetos simples e compostos precisam ser tratados da mesma forma;
-- há uma estrutura hierárquica ou recursiva;
-- um objeto composto contém uma coleção de componentes.
-
-No exemplo do pedido, `Cliente` e `Endereco` não são tratados como o mesmo tipo abstrato de `Pedido`.
-
-Portanto, não é um caso típico de Composite.
-
----
-
-### Composite e recursão
-
-Composite frequentemente leva a operações recursivas.
-
-No exemplo da pasta:
-
-```java
-public int getTamanho() {
-    int total = 0;
-
-    for (ItemSistemaArquivos item : itens) {
-        total += item.getTamanho();
-    }
-
-    return total;
-}
-```
-
-Se o item for um arquivo, retorna o tamanho do arquivo.
-
-Se o item for uma pasta, ela também calcula o tamanho de seus itens internos.
-
-Assim, a chamada pode se repetir por vários níveis da árvore.
-
----
-
-### Quando Composite pode ser exagero
-
-Composite pode ser exagero quando:
-
-- não há estrutura hierárquica;
-- o objeto não precisa conter outros objetos do mesmo tipo abstrato;
-- os objetos simples e compostos não precisam ser tratados da mesma forma;
-- a solução com uma lista simples já resolve;
-- a abstração criada torna o código mais difícil de entender.
-
-No projeto da disciplina, pode ser usado pedagogicamente. Mas, em sistemas reais, deve ser usado quando há uma necessidade clara de representar estruturas compostas.
-
----
-
-## Comparação ampliada entre Strategy e Composite
-
-### Diferença principal
-
-O **Strategy** trata variação de comportamento.
-
-O **Composite** trata composição de objetos.
-
-Em forma simples:
-
-| Padrão | Problema principal | Ideia central |
-|---|---|---|
-| Strategy | Uma ação pode ser feita de várias formas | Encapsular cada forma em uma estratégia |
-| Composite | Um objeto pode ser composto por outros objetos | Tratar objetos simples e compostos de forma uniforme |
-
----
-
-### Exemplo comparativo
-
-Imagine um sistema acadêmico.
-
-#### Possível uso de Strategy
-
-O sistema precisa calcular a situação final de um aluno.
-
-A regra pode variar:
-
-- média simples;
-- média ponderada;
-- regra com prova final;
-- regra com recuperação.
-
-Isso é Strategy, porque há diferentes formas de executar o mesmo comportamento: calcular resultado.
-
-#### Possível uso de Composite
-
-O sistema precisa representar a estrutura curricular:
-
-- curso;
-- períodos;
-- disciplinas;
-- módulos;
-- atividades.
-
-Se alguns elementos podem conter outros elementos e todos precisam ser tratados como componentes da estrutura curricular, pode haver uma oportunidade de Composite.
-
----
-
-### Outro exemplo comparativo
-
-Imagine um sistema de loja virtual.
-
-#### Possível uso de Strategy
-
-Calcular desconto:
-
-- desconto por cupom;
-- desconto por fidelidade;
-- desconto por campanha;
-- desconto progressivo.
-
-Isso é Strategy.
-
-#### Possível uso de Composite
-
-Representar categorias de produtos:
-
-- categoria principal;
-- subcategoria;
-- produto.
-
-Se categorias podem conter subcategorias e produtos, e o sistema precisa percorrer essa estrutura, pode haver Composite.
-
----
-
-### Mais um exemplo comparativo
-
-Imagine um sistema de tarefas.
-
-#### Possível uso de Strategy
-
-Ordenar tarefas:
-
-- por prazo;
-- por prioridade;
-- por responsável;
-- por status.
-
-Isso é Strategy.
-
-#### Possível uso de Composite
-
-Representar tarefas e subtarefas:
-
-- tarefa principal;
-- subtarefas;
-- subtarefas das subtarefas.
-
-Isso é Composite.
-
----
-
-## Perguntas práticas para escolher entre Strategy e Composite
-
-### Perguntas que indicam Strategy
-
-- Tenho uma ação que pode ser executada de formas diferentes?
-- Estou escolhendo comportamento com `if`, `else` ou `switch`?
-- Posso trocar a regra sem alterar a classe principal?
-- Cada variação da regra poderia virar uma classe separada?
-- O problema é variação de algoritmo ou comportamento?
-
-### Perguntas que indicam Composite
-
-- Tenho objetos que contêm outros objetos?
-- Tenho uma estrutura de árvore?
-- Preciso tratar um item individual e um grupo da mesma forma?
-- O objeto composto deveria depender apenas de uma interface comum?
-- O problema é representar uma relação parte-todo?
-
----
-
-## Exemplos possíveis nos projetos da disciplina
-
-### Possíveis aplicações de Strategy
-
-Em projetos da disciplina, o Strategy pode aparecer em situações como:
-
-- diferentes formas de validar um cadastro;
-- diferentes formas de calcular uma pontuação;
-- diferentes formas de gerar relatório;
-- diferentes formas de exportar dados;
-- diferentes formas de notificar usuários;
-- diferentes formas de autenticar usuários;
-- diferentes regras de autorização por perfil;
-- diferentes formas de ordenar ou filtrar resultados;
-- diferentes formas de calcular status de uma entidade.
-
-Exemplo:
-
-> Se um sistema possui usuários com perfis diferentes e cada perfil tem uma regra diferente para acessar funcionalidades, pode-se modelar cada regra como uma estratégia de autorização.
-
----
-
-### Possíveis aplicações de Composite
-
-Em projetos da disciplina, o Composite pode aparecer em situações como:
-
-- categorias e subcategorias;
-- comentários e respostas a comentários;
-- tarefas e subtarefas;
-- módulos e aulas;
-- menus e submenus;
-- pastas e arquivos;
-- grupos e subgrupos;
-- estruturas de permissões hierárquicas;
-- componentes de interface organizados em árvore;
-- projetos compostos por etapas, que contêm atividades.
-
-Exemplo:
-
-> Se um sistema possui tarefas que podem conter subtarefas, e subtarefas também podem conter outras subtarefas, o Composite pode ser usado para tratar tarefa simples e tarefa composta de forma uniforme.
-
----
-
-## Síntese final
-
-O Strategy e o Composite usam interfaces e polimorfismo, mas resolvem problemas diferentes.
-
-O **Strategy** deve ser lembrado como o padrão das **variações de comportamento**.
-
-O **Composite** deve ser lembrado como o padrão das **estruturas compostas**, especialmente estruturas em árvore.
-
-Em ambos os casos, a interface reduz o acoplamento com classes concretas.
-
-Mas o papel da interface é diferente:
-
-- no Strategy, a interface representa uma família de estratégias;
-- no Composite, a interface representa um componente comum para objetos simples e compostos.
-
-A principal competência não é decorar o código dos padrões, mas reconhecer o tipo de problema que cada padrão resolve.
