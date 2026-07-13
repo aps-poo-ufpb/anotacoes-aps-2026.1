@@ -1,3 +1,6 @@
+---
+feature: projetos/UFPB.2026.1/APS2026.1/anotacoes-aps-2026.1/2026-07-06 Strategy - Composite/attachments/2026-07-06 Strategy - Composite 2026-07-06 08.38.48.excalidraw.svg
+---
 
 [2026-07-06 Strategy - Composite 2026-07-06 08.38.48.excalidraw](attachments/2026-07-06%20Strategy%20-%20Composite%202026-07-06%2008.38.48.excalidraw.md)
 ![](attachments/2026-07-06%20Strategy%20-%20Composite%202026-07-06%2008.38.48.excalidraw.svg)
