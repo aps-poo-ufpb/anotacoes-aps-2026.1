@@ -20,21 +20,8 @@
               "icon": "lucide-file",
               "title": "2026-07-13 Decorator"
             }
-          },
-          {
-            "id": "284603e51905f4a0",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "2026-07-13 Decorator/attachments/2026-07-13 Decorator 2026-07-13 08.49.09.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "2026-07-13 Decorator 2026-07-13 08.49.09.excalidraw"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -193,7 +180,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "284603e51905f4a0",
+  "active": "ef0ac5d74f49dcd7",
   "lastOpenFiles": [
     "2026-07-13 Decorator/attachments/2026-07-13 Decorator 2026-07-13 08.49.09.excalidraw.md",
     "2026-07-13 Decorator/2026-07-13 Decorator.md",
